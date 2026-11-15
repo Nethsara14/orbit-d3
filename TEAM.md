@@ -23,7 +23,7 @@
 - **Role:** Developer
 - **Worked on:** Header, page design, Apollo 11 story
 - **GitHub:** [@Hirushan450](https://github.com/Hirushan450)
-- **LinkedIn:** [LinkedIn profile](https://www.linkedin.com/in/their-linkedin/)
+- **LinkedIn:** [LinkedIn profile](https://www.linkedin.com/in/pasindu-hirushan-se/)
 
 ---
 
