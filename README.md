@@ -6,10 +6,19 @@
 [![NASA API](https://img.shields.io/badge/NASA%20API-Image%20and%20Video%20Library-1d70b8)](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Built with HTML, CSS and JavaScript](https://img.shields.io/badge/Built%20with-HTML%20%7C%20CSS%20%7C%20JavaScript-orange)
+[![Live site](https://img.shields.io/badge/Live%20site-GitHub%20Pages-2ea44f)](https://nethsara14.github.io/orbit-d3/)
 
 **Echoes of Space** is an interactive storytelling website about NASA equipment left behind on the Moon and Mars.
 Built by **Team ORBIT D3** for the **NASA Space Apps Challenge 2026**
 (challenge: [NASA's Discarded Equipment Storytelling](https://www.spaceappschallenge.org/2026/challenges/nasas-discarded-equipment-storytelling/)).
+
+## Live demo and links
+
+| | Link |
+|---|---|
+| 🌐 **Live website** | [nethsara14.github.io/orbit-d3](https://nethsara14.github.io/orbit-d3/) |
+| 💻 **Source code (GitHub)** | [github.com/Nethsara14/orbit-d3](https://github.com/Nethsara14/orbit-d3) |
+| 🎞️ **Project presentation (slides)** | [View on Google Drive](https://drive.google.com/file/d/1-x53TaF0KvNlOLmPSqs_bOCp8dVZduXP/view?usp=sharing) |
 
 ## The stories
 
