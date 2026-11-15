@@ -89,8 +89,7 @@ Each story folder has its own `index.html`, `script.js` (mission data) and `styl
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/OWNER/orbit-d3.git
-   cd orbit-d3
+   git clone https://github.com/Nethsara14/orbit-d3.git
    ```
 2. Open the folder in VS Code and start **Live Server** on `index.html`
    (or run `npx serve` or `python -m http.server`, then open the address it shows).
