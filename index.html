@@ -1,22 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-        content="Explore the stories of spacecraft left on the Moon and Mars.">
+  <meta name="description" content="Explore the stories of spacecraft left on the Moon and Mars.">
 
   <title>Echoes of Space | ORBIT D3</title>
 
   <!-- Shared Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect"
-        href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/hero.css">
@@ -33,25 +32,19 @@
   <header class="site-header">
     <div class="container nav-bar">
 
-      <a href="#home" class="brand"
-         aria-label="ORBIT D3 Home">
+      <a href="#home" class="brand" aria-label="ORBIT D3 Home">
         <span class="brand-mark" aria-hidden="true"></span>
         <span>ORBIT <strong>D3</strong></span>
       </a>
 
-      <button class="menu-toggle"
-              type="button"
-              aria-label="Open navigation"
-              aria-expanded="false"
-              aria-controls="primary-navigation">
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
+        aria-controls="primary-navigation">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav id="primary-navigation"
-           class="site-nav"
-           aria-label="Main navigation">
+      <nav id="primary-navigation" class="site-nav" aria-label="Main navigation">
 
         <a href="#home" class="nav-link">Home</a>
         <a href="#missions" class="nav-link">Missions</a>
@@ -64,8 +57,7 @@
   <main>
 
     <!-- MEMBER 1: HERO SECTION -->
-    <section id="home" class="hero"
-             aria-labelledby="hero-title">
+    <section id="home" class="hero" aria-labelledby="hero-title">
 
       <div class="hero-stars" aria-hidden="true"></div>
 
@@ -94,14 +86,12 @@
 
           <div class="hero-actions">
 
-            <a href="#missions"
-               class="button button-primary">
+            <a href="#missions" class="button button-primary">
               Explore Missions
               <span aria-hidden="true">↗</span>
             </a>
 
-            <a href="#about"
-               class="button button-secondary">
+            <a href="#about" class="button button-secondary">
               About the Project
             </a>
 
@@ -121,11 +111,8 @@
 
           <div class="visual-halo"></div>
 
-          <img src="assets/images/hero-space.svg"
-               alt="Artistic Moon and spacecraft illustration"
-               class="hero-image"
-               width="700"
-               height="650">
+          <img src="assets/images/hero-space.svg" alt="Artistic Moon and spacecraft illustration" class="hero-image"
+            width="700" height="650">
 
           <div class="visual-label visual-label-top">
             EXPLORING THE UNKNOWN
@@ -168,6 +155,20 @@
               <h3>Apollo 11: Eagle</h3>
               <p>The lunar lander whose lower stage still rests at Tranquility Base.</p>
               <a class="read" href="stories/apollo/index.html">Read the Apollo story </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">
+              <img src="https://images-assets.nasa.gov/image/as15-85-11451/as15-85-11451~large.jpg"
+                alt="Astronaut David Scott working at the Lunar Roving Vehicle on the edge of Hadley Rille, Apollo 15"
+                loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <span class="tag">Moon · 1971</span>
+              <h3>Apollo 15: Lunar Rover</h3>
+              <p>The first Lunar Roving Vehicle drove 28 km across the Moon, then was left parked at Hadley Rille.</p>
+              <a class="read" href="stories/apollo-15/index.html">Read the Apollo 15 story </a>
             </div>
           </article>
 
@@ -229,9 +230,7 @@
 
 
     <!-- MEMBER 3 WILL REPLACE THIS CONTENT -->
-    <section id="about"
-             class="section-placeholder section-placeholder-alt"
-             aria-labelledby="about-heading">
+    <section id="about" class="section-placeholder section-placeholder-alt" aria-labelledby="about-heading">
 
       <div class="container">
         <p class="section-kicker">OUR PURPOSE</p>
@@ -251,72 +250,73 @@
 
   </main>
 
-    <!-- MEMBER 2: FOOTER -->
-    <footer class="site-footer" aria-labelledby="footer-title">
-      <div class="container">
-    
-        <div class="footer-top">
-    
-          <div class="footer-brand">
-            <a href="#home" class="footer-logo" aria-label="ORBIT D3 Home">
-              <span class="footer-logo-mark" aria-hidden="true"></span>
-              <span>ORBIT <strong>D3</strong></span>
-            </a>
-            <h2 id="footer-title" class="footer-title">Echoes of Space</h2>
-            <p class="footer-text">
-              Three machines left on the Moon and Mars, and the stories
-              they still tell. Built for the NASA Space Apps Challenge 2026.
-            </p>
-          </div>
-    
-          <nav class="footer-col" aria-label="Missions">
-            <h3>Missions</h3>
-            <ul>
-              <li><a href="stories/apollo/index.html">Apollo 11: Eagle</a></li>
-              <li><a href="stories/opportunity/index.html">Opportunity</a></li>
-              <li><a href="stories/ingenuity/index.html">Ingenuity</a></li>
-            </ul>
-          </nav>
-    
-          <nav class="footer-col" aria-label="Explore the site">
-            <h3>Explore</h3>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#missions">Choose a mission</a></li>
-              <li><a href="#how">How stories work</a></li>
-              <li><a href="#about">About</a></li>
-            </ul>
-          </nav>
-    
-          <nav class="footer-col" aria-label="Sources">
-            <h3>Sources</h3>
-            <ul>
-              <li>
-                <a href="https://www.spaceappschallenge.org/2026/challenges/nasas-discarded-equipment-storytelling/?tab=resources"
-                  target="_blank" rel="noopener noreferrer">
-                  Space Apps challenge<span class="sr-only"> (opens in a new tab)</span> ↗
-                </a>
-              </li>
-              <li>
-                <a href="https://www.nasa.gov" target="_blank" rel="noopener noreferrer">
-                  NASA.gov<span class="sr-only"> (opens in a new tab)</span> ↗
-                </a>
-              </li>
-            </ul>
-          </nav>
-    
-        </div>
-    
-        <div class="footer-bottom">
-          <p>
-            © 2026 ORBIT D3 · Student project. Educational work, not an official
-            NASA website. Images and mission facts are credited to NASA.
+  <!-- MEMBER 2: FOOTER -->
+  <footer class="site-footer" aria-labelledby="footer-title">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <a href="#home" class="footer-logo" aria-label="ORBIT D3 Home">
+            <span class="footer-logo-mark" aria-hidden="true"></span>
+            <span>ORBIT <strong>D3</strong></span>
+          </a>
+          <h2 id="footer-title" class="footer-title">Echoes of Space</h2>
+          <p class="footer-text">
+            Three machines left on the Moon and Mars, and the stories
+            they still tell. Built for the NASA Space Apps Challenge 2026.
           </p>
-          <a href="#home" class="back-to-top">Back to top <span aria-hidden="true">↑</span></a>
         </div>
-    
+
+        <nav class="footer-col" aria-label="Missions">
+          <h3>Missions</h3>
+          <ul>
+            <li><a href="stories/apollo/index.html">Apollo 11: Eagle</a></li>
+            <li><a href="stories/opportunity/index.html">Opportunity</a></li>
+            <li><a href="stories/ingenuity/index.html">Ingenuity</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Explore the site">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#missions">Choose a mission</a></li>
+            <li><a href="#how">How stories work</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Sources">
+          <h3>Sources</h3>
+          <ul>
+            <li>
+              <a href="https://www.spaceappschallenge.org/2026/challenges/nasas-discarded-equipment-storytelling/?tab=resources"
+                target="_blank" rel="noopener noreferrer">
+                Space Apps challenge<span class="sr-only"> (opens in a new tab)</span> ↗
+              </a>
+            </li>
+            <li>
+              <a href="https://www.nasa.gov" target="_blank" rel="noopener noreferrer">
+                NASA.gov<span class="sr-only"> (opens in a new tab)</span> ↗
+              </a>
+            </li>
+          </ul>
+        </nav>
+
       </div>
-    </footer>
+
+      <div class="footer-bottom">
+        <p>
+          © 2026 ORBIT D3 · Student project. Educational work, not an official
+          NASA website. Images and mission facts are credited to NASA.
+        </p>
+        <a href="#home" class="back-to-top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+
+    </div>
+  </footer>
 
 </body>
+
 </html>
