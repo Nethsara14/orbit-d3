@@ -440,8 +440,14 @@
   }
 
   .hero-layout {
-    padding-top: 68px;
-    padding-bottom: 92px;
+    padding-top: 52px;
+    padding-bottom: 48px;
+    gap: 0;
+  }
+
+  /* mobile eke scroll hint eka epa, space ekak thiyenawa */
+  .scroll-hint {
+    display: none;
   }
 
   .hero h1 {
@@ -458,7 +464,13 @@
   }
 
   .hero-visual {
-    margin-top: 18px;
+    width: min(92%, 400px);
+    margin: 8px auto 0;
+  }
+
+  /* image eka athule thiyena empty space eka kapanawa */
+  .hero-image {
+    margin-block: -9%;
   }
 
   .visual-label {
@@ -468,12 +480,12 @@
 
   .visual-label-top {
     right: 0;
-    top: 5%;
+    top: 2%;
   }
 
   .visual-label-bottom {
     left: 0;
-    bottom: 7%;
+    bottom: 2%;
   }
 }
 
