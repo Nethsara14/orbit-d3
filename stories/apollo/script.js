@@ -1,84 +1,252 @@
-/* Apollo 11: Eagle — mission stops. Facts adapted from NASA mission records. */
+/* ==========================================================
+   ORBIT D3 — APOLLO 11 STORY INTERACTIONS
+   Reading progress, chapter state and progressive reveals
+   ========================================================== */
+
+// The shared mission-trail script reads these seven Apollo 11 stops.
 window.STORY = {
-    bg: 'https://images-assets.nasa.gov/image/as11-44-6642/as11-44-6642~large.jpg',
-    missionMeta: {
-        spacecraft: 'Apollo 11 Lunar Module "Eagle"',
-        planet: 'The Moon (Sea of Tranquility)',
-        coordinates: '0.67° N, 23.47° E',
-        status: 'Descent stage still resting at Tranquility Base, the Moon',
-        sourceUrl: 'https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo11.html',
+  bg: "../../assets/images/apollo/eagle-lunar-module.jpg",
+  stops: [
+    {
+      title: "Launch: The Journey Begins",
+      date: "July 16, 1969",
+      text: "A Saturn V rocket launched Apollo 11 into space. Neil Armstrong, Buzz Aldrin, and Michael Collins began the journey to the Moon.",
+      fact: "Eagle was the Lunar Module built to land Armstrong and Aldrin on the Moon and lift them back into lunar orbit."
     },
-
-    gallery: [
-        {
-            src: 'https://www.nasa.gov/wp-content/uploads/2023/03/589552main_as11-40-5875_full.jpg',
-            alt: 'Astronaut Buzz Aldrin standing beside the American flag on the Moon, with the Eagle lunar module at left',
-            caption: 'Buzz Aldrin beside the flag at Tranquility Base, 1969. Image: NASA',
-        },
-        {
-            src: 'https://images-assets.nasa.gov/image/as11-44-6642/as11-44-6642~large.jpg',
-            alt: 'The Eagle ascent stage returning to lunar orbit, with Earth rising above the Moon',
-            caption: 'Eagle returning to lunar orbit, July 21, 1969. Image: NASA/Michael Collins',
-        },
-        {
-            src: 'https://images-assets.nasa.gov/image/KSC-69PC-397/KSC-69PC-397~orig.jpg',
-            alt: 'The American flag at Kennedy Space Center as the Apollo 11 Saturn V lifts off',
-            caption: 'Apollo 11 lifts off from Kennedy Space Center, July 16, 1969. Image: NASA',
-        },
-        {
-            src: 'https://images-assets.nasa.gov/image/as11-40-5903/as11-40-5903~large.jpg',
-            alt: 'Buzz Aldrin on the Moon with Neil Armstrong and the lunar module reflected in his visor',
-            caption: 'Aldrin’s visor reflects Armstrong and Eagle, 1969. Image: NASA/Neil Armstrong',
-        },
-        {
-            src: 'https://images-assets.nasa.gov/image/as11-40-5927/as11-40-5927~large.jpg',
-            alt: 'The Apollo 11 lunar module Eagle resting on the lunar surface',
-            caption: 'Eagle resting on the lunar surface, 1969. Image: NASA',
-        },
-    ],
-
-    stops: [
-        {
-            title: 'Launch: Journey to the Moon',
-            date: 'July 16, 1969',
-            text: 'Apollo 11 lifted off from Launch Complex 39A at Kennedy Space Center, Florida, on a Saturn V rocket at 9:32 a.m. EDT. On board were commander Neil Armstrong, command module pilot Michael Collins and lunar module pilot Buzz Aldrin. The lander Eagle rode folded up inside the rocket below their command module.',
-            fact: 'The Saturn V stood about 363 feet (111 meters) tall, taller than the Statue of Liberty without its base.',
-        },
-        {
-            title: 'Into Lunar Orbit',
-            date: 'July 19 – 20, 1969',
-            text: 'After a four-day trip, Apollo 11 entered orbit around the Moon on July 19. On July 20, Armstrong and Aldrin climbed into the lunar module Eagle and separated from the command module Columbia at 1:47 p.m. EDT, while Collins stayed behind in orbit.',
-            fact: 'Eagle was named after the bald eagle on the Apollo 11 mission patch, which shows an eagle landing with an olive branch.',
-        },
-        {
-            title: 'The Eagle Has Landed',
-            date: 'July 20, 1969',
-            text: 'Computer alarms sounded during the descent, and the planned landing area was covered with boulders. Armstrong took manual control and flew Eagle to a safe spot in the Sea of Tranquility at about 4:17 p.m. EDT, with only seconds of fuel left. He radioed Mission Control that "the Eagle has landed."',
-            fact: 'Eagle’s descent stage did two jobs: it landed the crew on the Moon, and later it served as the launch platform for the ascent stage.',
-        },
-        {
-            title: 'One Small Step',
-            date: 'July 20, 1969',
-            text: 'At 10:56 p.m. EDT, Neil Armstrong climbed down the ladder and became the first person to step onto the Moon. Buzz Aldrin joined him about 20 minutes later. Together they walked on the surface for about two and a half hours while a TV camera sent the pictures back to Earth.',
-            fact: 'An estimated 600 million people around the world watched the first moonwalk live on television.',
-        },
-        {
-            title: 'Science at Tranquility Base',
-            date: 'July 20 – 21, 1969',
-            text: 'Next to Eagle, the astronauts set up experiments, including a seismometer to detect moonquakes and a laser reflector. They also planted the U.S. flag and collected rock and soil samples to bring back to Earth, about 21.5 kg (47.5 lb) in total.',
-            fact: 'The laser reflector left by Apollo 11 is still used today. Scientists bounce laser beams off it to measure the distance between Earth and the Moon.',
-        },
-        {
-            title: 'Leaving Eagle Behind',
-            date: 'July 21, 1969',
-            text: 'After 21 and a half hours on the surface, the ascent stage of Eagle blasted off from the Moon at about 1:54 p.m. EDT, leaving the descent stage behind. It docked with Columbia at 5:34 p.m. EDT. Once the crew and their samples moved over, the ascent stage was cast off into lunar orbit.',
-            fact: 'To save weight, the astronauts left behind items such as their boots and life-support backpacks. A plaque on the descent stage says they came in peace for all mankind.',
-        },
-        {
-            title: 'Splashdown & Legacy',
-            date: 'July 24, 1969',
-            text: 'Columbia splashed down in the Pacific Ocean and the crew was picked up by the recovery ship USS Hornet. Eagle’s descent stage remained on the Moon, where it still sits at Tranquility Base today. NASA’s Lunar Reconnaissance Orbiter later photographed the site from above.',
-            fact: 'The Eagle ascent stage left in lunar orbit slowly lost its orbit over time, and it is believed to have crashed on the Moon at an unknown location.',
-        },
-    ],
+    {
+      title: "Eagle Leaves Columbia",
+      date: "July 20, 1969",
+      text: "Armstrong and Aldrin traveled inside Eagle as it separated from Columbia and began its descent toward the lunar surface.",
+      fact: "Michael Collins remained aboard Columbia, orbiting the Moon while Eagle descended."
+    },
+    {
+      title: "Touchdown at Tranquility Base",
+      date: "July 20, 1969",
+      text: "Rocks and a crater made the planned landing area dangerous, so Armstrong guided Eagle toward safer ground. Eagle landed in the Sea of Tranquility.",
+      fact: "This was the first time humans had safely landed on the Moon."
+    },
+    {
+      title: "Exploration and Science",
+      date: "July 20–21, 1969",
+      text: "Armstrong became the first human to walk on the Moon, and Aldrin joined him. They collected rocks and soil, deployed a passive seismic experiment and a laser retroreflector, and gathered solar wind particles.",
+      fact: "About 21.5 kilograms of lunar samples returned to Earth. The solar wind experiment's foil was also brought back for study."
+    },
+    {
+      title: "The Final Lunar Takeoff",
+      date: "July 21, 1969",
+      text: "Eagle's Ascent Stage lifted Armstrong and Aldrin from the surface and carried them back toward Columbia in lunar orbit.",
+      fact: "Eagle's Descent Stage stayed on the Moon and served as the launch platform for the Ascent Stage."
+    },
+    {
+      title: "The Crew Returns Home",
+      date: "July 24, 1969",
+      text: "After rejoining Collins aboard Columbia, Armstrong and Aldrin returned with him to Earth. All three astronauts arrived home safely.",
+      fact: "Eagle's Ascent Stage was later discarded in lunar orbit; it did not return to Earth."
+    },
+    {
+      title: "A New View from Orbit",
+      date: "2009",
+      text: "NASA's Lunar Reconnaissance Orbiter photographed the Apollo 11 landing site. Eagle's Descent Stage could be identified at Tranquility Base.",
+      fact: "The separately deployed laser retroreflector remained useful for measurements of the Earth–Moon distance."
+    }
+  ]
 };
+
+(() => {
+  "use strict";
+
+  const progress = document.querySelector(".reading-progress");
+  const progressBar = document.getElementById("reading-progress-bar");
+  const chapterNav = document.querySelector(".chapter-nav");
+  const chapterLinks = Array.from(document.querySelectorAll("[data-chapter-link]"));
+  const chapters = Array.from(document.querySelectorAll("[data-chapter]"));
+  const storyStart = document.getElementById("journey");
+  const storyEnd = document.querySelector(".ending");
+  const mainContent = document.getElementById("main-content");
+  const backToTopButton = document.getElementById("back-to-top");
+  const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  let frameRequested = false;
+  let activeChapterId = "";
+  let lastProgressValue = -1;
+  let revealObserver = null;
+
+  function documentOffset(element) {
+    return element.getBoundingClientRect().top + window.scrollY;
+  }
+
+  function updateReadingProgress() {
+    if (!progress || !progressBar || !storyStart || !storyEnd) {
+      return;
+    }
+
+    const navHeight = document.querySelector(".chapter-nav-wrap")?.offsetHeight || 0;
+    const start = documentOffset(storyStart) - navHeight;
+    const end = documentOffset(storyEnd) + storyEnd.offsetHeight - window.innerHeight;
+    const distance = Math.max(end - start, 1);
+    const amount = Math.min(1, Math.max(0, (window.scrollY - start) / distance));
+    const roundedValue = Math.round(amount * 100);
+
+    progressBar.style.transform = `scaleX(${amount})`;
+
+    if (roundedValue !== lastProgressValue) {
+      progress.setAttribute("aria-valuenow", String(roundedValue));
+      lastProgressValue = roundedValue;
+    }
+  }
+
+  function centerActiveLink(link) {
+    if (!chapterNav || window.innerWidth > 780) {
+      return;
+    }
+
+    const left = link.offsetLeft - (chapterNav.clientWidth - link.offsetWidth) / 2;
+
+    chapterNav.scrollTo({
+      left: Math.max(0, left),
+      behavior: reducedMotion.matches ? "auto" : "smooth"
+    });
+  }
+
+  function setActiveChapter(chapterId) {
+    if (chapterId === activeChapterId) {
+      return;
+    }
+
+    activeChapterId = chapterId;
+
+    chapterLinks.forEach((link) => {
+      const isActive = link.getAttribute("href") === `#${chapterId}`;
+
+      link.classList.toggle("is-active", isActive);
+
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+        centerActiveLink(link);
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  function updateActiveChapter() {
+    if (chapters.length === 0) {
+      return;
+    }
+
+    const navHeight = document.querySelector(".chapter-nav-wrap")?.offsetHeight || 0;
+    const marker = navHeight + Math.min(window.innerHeight * 0.24, 190);
+    const firstChapterTop = chapters[0].getBoundingClientRect().top;
+
+    if (firstChapterTop > marker) {
+      setActiveChapter("");
+      return;
+    }
+
+    let nextChapterId = chapters[0].id;
+
+    chapters.forEach((chapter) => {
+      if (chapter.getBoundingClientRect().top <= marker) {
+        nextChapterId = chapter.id;
+      }
+    });
+
+    setActiveChapter(nextChapterId);
+  }
+
+  function updateStoryState() {
+    frameRequested = false;
+    updateReadingProgress();
+    updateActiveChapter();
+    if (backToTopButton) {
+      backToTopButton.hidden = window.scrollY < Math.max(500, window.innerHeight * 0.75);
+    }
+  }
+
+  function requestStoryUpdate() {
+    if (frameRequested) {
+      return;
+    }
+
+    frameRequested = true;
+    window.requestAnimationFrame(updateStoryState);
+  }
+
+  function showAllRevealItems() {
+    document.body.classList.remove("reveal-enabled");
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+
+    if (revealObserver) {
+      revealObserver.disconnect();
+      revealObserver = null;
+    }
+  }
+
+  function setupReveals() {
+    if (
+      revealItems.length === 0 ||
+      reducedMotion.matches ||
+      !("IntersectionObserver" in window)
+    ) {
+      showAllRevealItems();
+      return;
+    }
+
+    revealItems.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+
+      if (rect.top < window.innerHeight * 0.96 && rect.bottom > 0) {
+        item.classList.add("is-visible");
+      }
+    });
+
+    document.body.classList.add("reveal-enabled");
+
+    revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -8% 0px"
+      }
+    );
+
+    revealItems.forEach((item) => {
+      if (!item.classList.contains("is-visible")) {
+        revealObserver.observe(item);
+      }
+    });
+  }
+
+  window.addEventListener("scroll", requestStoryUpdate, { passive: true });
+  window.addEventListener("resize", requestStoryUpdate);
+  window.addEventListener("load", requestStoryUpdate);
+
+  backToTopButton?.addEventListener("click", () => {
+    mainContent?.focus({ preventScroll: true });
+    window.scrollTo({
+      top: 0,
+      behavior: reducedMotion.matches ? "auto" : "smooth"
+    });
+  });
+
+  if (typeof reducedMotion.addEventListener === "function") {
+    reducedMotion.addEventListener("change", (event) => {
+      if (event.matches) {
+        showAllRevealItems();
+      }
+    });
+  }
+
+  setupReveals();
+  updateStoryState();
+})();

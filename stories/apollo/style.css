@@ -1,135 +1,2110 @@
-/* Apollo theme: Eagle gold foil */
-body.story-page {
-  --story-accent: #f5c86a;
-  --story-accent-soft: #ffe7b0;
-  --story-glow: rgba(245, 200, 106, .16);
+/* ==========================================================
+   ORBIT D3 — APOLLO 11: THE SILENT MOON
+   Page-local cinematic editorial system
+   ========================================================== */
+
+.apollo-page {
+  --moon-black: var(--color-bg);
+  --moon-ivory: var(--color-text);
+  --moon-panel: var(--color-surface);
+  --moon-gold: #c8a66a;
+  --moon-gold-light: #e1c891;
+  --moon-line: rgba(180, 213, 255, 0.16);
+
+  min-width: 0;
+  overflow-x: clip;
+  background: var(--moon-black);
+  color: var(--moon-ivory);
+  color-scheme: dark;
 }
 
-/* Lighter overlay so the Apollo image shows through the trail map */
-.trail-map::before {
+.apollo-page ::selection {
+  background: var(--moon-gold);
+  color: #071426;
+}
+
+.apollo-page main :focus-visible,
+.apollo-page .apollo-footer :focus-visible {
+  outline-color: var(--moon-gold-light);
+}
+
+.apollo-page .skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 12px 16px;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.apollo-page .skip-link:focus {
+  transform: translateY(0);
+}
+
+/* HERO */
+
+.apollo-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: min(64rem, calc(100svh - 80px));
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: clamp(4rem, 7vh, 6rem) 0 clamp(1.5rem, 3vh, 2.5rem);
+  background:
+    radial-gradient(circle at 78% 32%, rgba(100, 216, 255, 0.08), transparent 28rem),
+    linear-gradient(115deg, #0b1730 0%, #050b19 58%, #091225 100%);
+}
+
+.apollo-hero::before {
+  position: absolute;
+  right: -12%;
+  bottom: -34%;
+  z-index: -2;
+  width: 78%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(180, 213, 255, 0.1);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0.09) 0 1.4%, transparent 1.6%),
+    radial-gradient(circle at 61% 24%, rgba(0, 0, 0, 0.22) 0 3%, transparent 3.2%),
+    radial-gradient(circle at 56% 56%, rgba(255, 255, 255, 0.05) 0 2.4%, transparent 2.6%),
+    #263041;
+  opacity: 0.58;
+  content: "";
+}
+
+.apollo-hero::after {
+  position: absolute;
+  right: 3.5%;
+  bottom: 7%;
+  z-index: -1;
+  width: min(40vw, 36rem);
+  height: 1px;
+  background: rgba(180, 213, 255, 0.18);
+  content: "";
+}
+
+.apollo-hero .hero-stars {
+  position: absolute;
+  inset: -1.5rem;
+  z-index: -3;
+  pointer-events: none;
   background-image:
-    linear-gradient(180deg, rgba(10, 20, 39, .30), rgba(10, 20, 39, .55)),
-    var(--trail-bg, none);
+    radial-gradient(circle at 9% 19%, rgba(219, 232, 246, 0.46) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 22% 72%, rgba(219, 232, 246, 0.36) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 46% 11%, rgba(255, 255, 255, 0.4) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 68% 67%, rgba(219, 232, 246, 0.34) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 89% 17%, rgba(255, 255, 255, 0.38) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 35% 54%, rgba(219, 232, 246, 0.32) 0 0.7px, transparent 1.1px),
+    radial-gradient(circle at 76% 83%, rgba(255, 255, 255, 0.35) 0 0.8px, transparent 1.2px);
+  background-size: 23rem 19rem, 31rem 27rem, 29rem 31rem, 37rem 23rem, 41rem 35rem, 19rem 23rem, 27rem 17rem;
+  animation: apollo-star-drift 24s ease-in-out infinite alternate;
 }
 
+.apollo-hero .hero-stars span {
+  position: absolute;
+  top: var(--star-y);
+  left: var(--star-x);
+  width: var(--star-size);
+  height: var(--star-size);
+  border-radius: 50%;
+  background: #dbe8f6;
+  box-shadow: 0 0 0.45rem rgba(180, 213, 255, 0.5);
+  animation: apollo-star-twinkle var(--star-time) ease-in-out var(--star-delay) infinite;
+}
 
-/* ---------- Legacy Card ---------- */
-.legacy-grid {
+.apollo-hero .hero-stars span:nth-child(3n) {
+  background: var(--moon-gold-light);
+  box-shadow: 0 0 0.45rem rgba(225, 200, 145, 0.5);
+}
+
+.apollo-hero .hero-stars span:nth-child(1) { --star-x: 8%; --star-y: 14%; --star-size: 3px; --star-time: 4.8s; --star-delay: -1.4s; }
+.apollo-hero .hero-stars span:nth-child(2) { --star-x: 18%; --star-y: 61%; --star-size: 3px; --star-time: 6.3s; --star-delay: -4.1s; }
+.apollo-hero .hero-stars span:nth-child(3) { --star-x: 29%; --star-y: 32%; --star-size: 2.5px; --star-time: 5.5s; --star-delay: -2.8s; }
+.apollo-hero .hero-stars span:nth-child(4) { --star-x: 37%; --star-y: 82%; --star-size: 3.5px; --star-time: 6.8s; --star-delay: -0.6s; }
+.apollo-hero .hero-stars span:nth-child(5) { --star-x: 47%; --star-y: 13%; --star-size: 3px; --star-time: 5.1s; --star-delay: -3.7s; }
+.apollo-hero .hero-stars span:nth-child(6) { --star-x: 56%; --star-y: 55%; --star-size: 3px; --star-time: 7.2s; --star-delay: -5.2s; }
+.apollo-hero .hero-stars span:nth-child(7) { --star-x: 66%; --star-y: 25%; --star-size: 3.5px; --star-time: 5.9s; --star-delay: -1.9s; }
+.apollo-hero .hero-stars span:nth-child(8) { --star-x: 74%; --star-y: 73%; --star-size: 2.5px; --star-time: 4.6s; --star-delay: -3.1s; }
+.apollo-hero .hero-stars span:nth-child(9) { --star-x: 83%; --star-y: 12%; --star-size: 3px; --star-time: 6.4s; --star-delay: -5.6s; }
+.apollo-hero .hero-stars span:nth-child(10) { --star-x: 89%; --star-y: 48%; --star-size: 3.5px; --star-time: 5.3s; --star-delay: -0.9s; }
+.apollo-hero .hero-stars span:nth-child(11) { --star-x: 94%; --star-y: 84%; --star-size: 2.5px; --star-time: 7s; --star-delay: -4.8s; }
+.apollo-hero .hero-stars span:nth-child(12) { --star-x: 11%; --star-y: 89%; --star-size: 3px; --star-time: 5.7s; --star-delay: -2.2s; }
+
+@keyframes apollo-star-drift {
+  from { transform: translate3d(-0.4rem, 0.5rem, 0); }
+  to { transform: translate3d(0.4rem, -0.5rem, 0); }
+}
+
+@keyframes apollo-star-twinkle {
+  0%, 100% { opacity: 0.18; transform: scale(0.65); }
+  40% { opacity: 0.95; transform: scale(1.5); }
+  70% { opacity: 0.3; transform: scale(0.85); }
+}
+
+.apollo-hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 48px;
+  grid-template-columns: minmax(0, 1.06fr) minmax(22rem, 0.78fr);
   align-items: center;
+  gap: clamp(3rem, 7vw, 7.5rem);
 }
 
-.legacy-content p {
+.apollo-intro {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  max-width: 45rem;
+}
+
+.mission-code {
+  display: flex;
+  gap: 1rem;
+  margin: 0 0 clamp(3rem, 7vh, 5rem);
+  color: #91a5bf;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.mission-code span + span {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mission-code span + span::before {
+  width: 2.2rem;
+  height: 1px;
+  background: rgba(180, 213, 255, 0.25);
+  content: "";
+}
+
+.moon-kicker,
+.chapter-number,
+.side-label,
+.info-label {
+  color: var(--moon-gold-light);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.6;
+}
+
+.apollo-intro .moon-kicker {
+  margin: 0 0 1.1rem;
+}
+
+.moon-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.55rem;
+}
+
+.moon-breadcrumb a {
+  border-bottom: 1px solid transparent;
+  color: inherit;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.moon-breadcrumb a:hover,
+.moon-breadcrumb a:focus-visible {
+  border-color: currentColor;
+  color: var(--moon-ivory);
+}
+
+.apollo-intro h1 {
+  margin: 0;
+  font-size: clamp(4.3rem, 8.2vw, 8rem);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 0.82;
+}
+
+.apollo-intro h1 span {
+  display: block;
+}
+
+.title-prefix {
+  margin-left: 0.1em;
+  color: #9fb3cd;
+  font-size: 0.42em;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.title-main {
+  color: var(--moon-ivory);
+}
+
+.apollo-subtitle {
+  max-width: 38rem;
+  margin: 2.2rem 0 0;
+  color: #e1eafd;
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 1.7vw, 1.28rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.apollo-summary {
+  max-width: 35rem;
+  margin: 1.2rem 0 0;
+  color: #b4c3d8;
+  font-size: clamp(0.96rem, 1.2vw, 1.05rem);
+  line-height: 1.85;
+}
+
+.apollo-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.7rem;
+  margin-top: 2.2rem;
+}
+
+.moon-button {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: 0.9rem 1.25rem;
+  border: 1px solid var(--moon-gold-light);
+  border-radius: 2px;
+  background: var(--moon-gold-light);
+  color: #071426;
+  font-family: var(--font-heading);
+  font-size: 0.77rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.moon-button span:last-child {
+  font-size: 1rem;
+}
+
+.moon-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(180, 213, 255, 0.28);
   color: #d3e0f3;
+  font-size: 0.79rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.story-notice {
+  max-width: 33rem;
+  margin: 1.7rem 0 0;
+  color: #8da3bd;
+  font-size: 0.74rem;
+  line-height: 1.65;
+}
+
+.apollo-hero-figure,
+.chapter-photo {
+  min-width: 0;
+  margin: 0;
+}
+
+.photo-frame {
+  position: relative;
+  overflow: hidden;
+  background: #0b1528;
+}
+
+.apollo-hero-figure {
+  position: relative;
+  width: min(100%, 31rem);
+  justify-self: end;
+}
+
+.apollo-hero-figure::before {
+  position: absolute;
+  inset: -1.2rem 1.2rem 1.2rem -1.2rem;
+  z-index: -1;
+  border: 1px solid rgba(180, 213, 255, 0.18);
+  content: "";
+}
+
+.apollo-hero-figure .photo-frame {
+  aspect-ratio: 1;
+  border: 1px solid rgba(180, 213, 255, 0.28);
+}
+
+.apollo-hero-figure .photo-frame::after,
+.science-photo .photo-frame::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 65%, rgba(0, 0, 0, 0.42));
+  pointer-events: none;
+  content: "";
+}
+
+.apollo-hero-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.82) contrast(1.04);
+}
+
+.photo-index {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(5, 11, 25, 0.7);
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--font-heading);
+  font-size: 0.57rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.frame-corner {
+  position: absolute;
+  z-index: 2;
+  width: 2.25rem;
+  height: 2.25rem;
+  pointer-events: none;
+}
+
+.frame-corner-top {
+  top: 0.7rem;
+  left: 0.7rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.72);
+  border-left: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.frame-corner-bottom {
+  right: 0.7rem;
+  bottom: 0.7rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.apollo-hero-figure figcaption,
+.chapter-photo figcaption {
+  display: grid;
+  gap: 0.55rem;
+  padding-top: 1rem;
+  color: #9aacc5;
+  font-size: 0.67rem;
+  line-height: 1.55;
+}
+
+.apollo-hero-figure figcaption span:first-child,
+.chapter-photo figcaption span:first-child {
+  color: var(--moon-gold-light);
+  font-family: var(--font-heading);
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.mission-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(2.5rem, 5vh, 4.5rem);
+  padding: 1.35rem 0 0;
+  border-top: 1px solid var(--moon-line);
+}
+
+.mission-facts div {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+  padding: 0 2rem;
+}
+
+.mission-facts div:first-child {
+  padding-left: 0;
+}
+
+.mission-facts div + div {
+  border-left: 1px solid rgba(180, 213, 255, 0.14);
+}
+
+.mission-facts dt {
+  color: var(--moon-ivory);
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.mission-facts dd {
+  margin: 0;
+  color: #8fa3bd;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+/* INTERACTIVE MISSION TRAIL */
+
+.apollo-trail {
+  padding: clamp(5rem, 8vh, 7.5rem) 0;
+  border-top: 1px solid var(--moon-line);
+  background: #0a1427;
+  scroll-margin-top: 1rem;
+}
+
+.apollo-trail .trail-head {
+  max-width: 44rem;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.apollo-trail .chapter-number {
+  margin: 0 0 1rem;
+}
+
+.apollo-trail h2 {
+  margin: 0;
+  color: var(--moon-ivory);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.trail-intro {
+  max-width: 34rem;
+  margin: 1.25rem auto 0;
+  color: #a9b9ce;
+  font-size: 0.96rem;
+  line-height: 1.75;
+}
+
+.trail-progress-bar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem 1rem;
+  margin-top: 1.8rem;
+  padding: 0.85rem 1.15rem;
+  border: 1px solid rgba(180, 213, 255, 0.19);
+  background: rgba(5, 11, 25, 0.45);
+}
+
+.trail-progress-bar .stars {
+  display: flex;
+  gap: 0.12rem;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.trail-progress-bar .stars span {
+  color: #526681;
+  transition: color 0.2s ease;
+}
+
+.trail-progress-bar .stars span.on {
+  color: var(--moon-gold-light);
+}
+
+#progress-text {
+  margin: 0;
+  color: var(--moon-ivory);
+  font-size: 0.79rem;
+  font-weight: 600;
+}
+
+.trail-progress-bar .link-button {
+  padding: 0.25rem 0.1rem;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  color: var(--moon-gold-light);
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.trail-progress-bar .link-button:hover {
+  color: var(--moon-ivory);
+}
+
+.trail-map {
+  position: relative;
+  width: min(100%, 26.25rem);
+  aspect-ratio: 360 / 1015;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(180, 213, 255, 0.22);
+  background: #0b1528;
+  --trail-bg: url("../../assets/images/apollo/eagle-lunar-module.jpg");
+}
+
+.trail-map::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(180deg, rgba(5, 11, 25, 0.56), rgba(5, 11, 25, 0.73)),
+    var(--trail-bg);
+  background-position: center;
+  background-size: cover;
+  content: "";
+}
+
+.trail-map svg,
+.trail-nodes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 360 / 940;
+}
+
+.trail-map svg {
+  z-index: 1;
+}
+
+.trail-nodes {
+  z-index: 2;
+}
+
+.trail-base,
+.trail-progress {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 6;
+}
+
+.trail-base {
+  stroke: rgba(180, 213, 255, 0.45);
+  stroke-dasharray: 1 14;
+}
+
+.trail-progress {
+  stroke: var(--moon-gold-light);
+  transition: stroke-dashoffset 0.7s ease;
+}
+
+.trail-node {
+  position: absolute;
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(180, 213, 255, 0.72);
+  border-radius: 50%;
+  background: #111f37;
+  color: var(--moon-ivory);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.trail-node:hover,
+.trail-node:focus-visible,
+.trail-node.is-next {
+  border-color: var(--moon-gold-light);
+  background: #283045;
+}
+
+.trail-node .label {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  left: 50%;
+  width: 6.7rem;
+  transform: translateX(-50%);
+  color: var(--moon-ivory);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  text-shadow: 0 2px 5px #050b19;
+  pointer-events: none;
+}
+
+.trail-node.is-visited {
+  border-color: var(--moon-gold-light);
+  background: var(--moon-gold-light);
+  color: #071426;
+}
+
+.trail-done,
+.trail-fallback {
+  max-width: 34rem;
+  margin: 2rem auto 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(225, 200, 145, 0.4);
+  color: var(--moon-gold-light);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.trail-done[hidden] {
+  display: none;
+}
+
+.apollo-page #stop-dialog {
+  width: min(35rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  overflow-y: auto;
+  border: 0;
+  background: transparent;
+  color: var(--moon-ivory);
+}
+
+.apollo-page #stop-dialog::backdrop {
+  background: rgba(2, 6, 16, 0.86);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.apollo-page #stop-dialog :focus-visible {
+  outline-color: var(--moon-gold-light);
+}
+
+.stop-card {
+  position: relative;
+  padding: 2rem;
+  border: 1px solid rgba(180, 213, 255, 0.22);
+  border-top: 3px solid var(--moon-gold-light);
+  background: #0f1c34;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.55);
+}
+
+.stop-close {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--moon-line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--moon-ivory);
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+
+.stop-close:hover {
+  border-color: var(--moon-gold-light);
+}
+
+.stop-step,
+.stop-date {
+  margin: 0;
+}
+
+.stop-step {
+  color: var(--moon-gold-light);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.stop-date {
+  margin-top: 0.35rem;
+  color: #a9b9ce;
+  font-size: 0.8rem;
+}
+
+.stop-card h2 {
+  margin: 1rem 2.6rem 1rem 0;
+  font-size: clamp(1.65rem, 4vw, 2.4rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+}
+
+.stop-text {
+  margin: 0;
+  color: #d3e0f3;
+  font-size: 0.94rem;
   line-height: 1.8;
 }
 
-.legacy-content .note {
-  margin-top: 20px;
-  color: var(--color-muted);
-  font-size: .88rem;
+.stop-fact {
+  margin: 1.5rem 0;
+  padding: 1rem 1.15rem;
+  border-left: 2px solid var(--moon-gold-light);
+  background: rgba(225, 200, 145, 0.055);
+  color: #c7d8ee;
+  font-size: 0.84rem;
+  line-height: 1.7;
 }
 
-.legacy-content .note a {
-  color: var(--accent-soft);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.stop-fact strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--moon-gold-light);
+  font-family: var(--font-heading);
 }
 
-.legacy-card {
-  position: relative;
-  padding: 26px;
-  border: 1px solid rgba(180, 213, 255, .18);
-  border-radius: 20px;
-  background:
-    radial-gradient(circle at 100% 0%, rgba(245, 200, 106, .14), transparent 55%),
-    linear-gradient(160deg, #12213d 0%, #0b1528 100%);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+.stop-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
 }
 
-.legacy-card-head {
-  margin-bottom: 18px;
-}
-
-.status-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 5px 11px;
-  border: 1px solid rgba(245, 200, 106, .3);
-  border-radius: 999px;
-  background: rgba(245, 200, 106, .1);
-  color: var(--accent-soft);
-  font-size: .72rem;
+.stop-btn {
+  min-height: 2.8rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid rgba(180, 213, 255, 0.32);
+  background: transparent;
+  color: var(--moon-ivory);
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  cursor: pointer;
 }
 
-.status-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
+.stop-btn:hover:not(:disabled) {
+  border-color: var(--moon-gold-light);
 }
 
-.legacy-card h3 {
-  margin: 12px 0 0;
-  font-size: 1.4rem;
-  letter-spacing: -.02em;
-  color: #fff;
+.stop-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
-.legacy-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+.stop-btn-primary {
+  border-color: var(--moon-gold-light);
+  background: var(--moon-gold-light);
+  color: #071426;
 }
 
-.stat-box {
-  padding: 14px;
-  border: 1px solid rgba(180, 213, 255, .1);
-  border-radius: 12px;
-  background: rgba(7, 14, 33, .55);
+.stop-btn-primary:hover:not(:disabled) {
+  background: var(--moon-ivory);
+  color: #071426;
 }
 
-.stat-box small {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--color-muted);
-  font-size: .68rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
+@media (min-width: 901px) {
+  .trail-map {
+    width: min(100%, 68.75rem);
+    aspect-ratio: 1100 / 460;
+  }
 
-.stat-box strong {
-  display: block;
-  color: #fff;
-  font-size: .95rem;
-  line-height: 1.3;
-}
+  .trail-map svg,
+  .trail-nodes {
+    inset: 0;
+    height: 100%;
+    aspect-ratio: auto;
+  }
 
-.stat-box span {
-  display: block;
-  margin-top: 3px;
-  color: var(--accent-soft);
-  font-size: .76rem;
-}
+  .trail-node:first-child .label {
+    transform: translateX(-40%);
+  }
 
-/* Mobile & Tablet Responsive */
-@media (max-width: 900px) {
-  .legacy-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .trail-node .label {
+    width: 7.4rem;
+    font-size: 0.8rem;
+  }
+
+  .trail-node:last-child .label {
+    transform: translateX(-85%);
   }
 }
 
-@media (max-width: 480px) {
-  .legacy-stats-grid {
+/* STICKY CHAPTER RAIL */
+
+.chapter-nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 70;
+  border-top: 1px solid rgba(180, 213, 255, 0.08);
+  border-bottom: 1px solid rgba(180, 213, 255, 0.13);
+  background: rgba(5, 11, 25, 0.92);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.chapter-nav-layout {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.32fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 2rem;
+}
+
+.chapter-nav-title {
+  display: flex;
+  align-items: center;
+  color: #8da3bd;
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.chapter-nav {
+  display: flex;
+  min-width: 0;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: clamp(1.5rem, 5vw, 4.5rem);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+}
+
+.chapter-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.chapter-nav a {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 4.25rem;
+  color: #a9b9ce;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  scroll-snap-align: center;
+  transition: color 0.2s ease;
+}
+
+.chapter-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--moon-gold-light);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.chapter-nav a > span:first-child {
+  color: #8095b0;
+  font-size: 0.61rem;
+  letter-spacing: 0.12em;
+  transition: color 0.2s ease;
+}
+
+.chapter-nav a:hover,
+.chapter-nav a.is-active {
+  color: var(--moon-ivory);
+}
+
+.chapter-nav a:hover > span:first-child,
+.chapter-nav a.is-active > span:first-child {
+  color: var(--moon-gold-light);
+}
+
+.chapter-nav a.is-active::after {
+  transform: scaleX(1);
+}
+
+.reading-progress {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  overflow: hidden;
+  background: transparent;
+}
+
+#reading-progress-bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--moon-gold-light);
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
+}
+
+/* SHARED CHAPTER TYPOGRAPHY */
+
+.story-chapter {
+  position: relative;
+  isolation: isolate;
+  scroll-margin-top: 4.25rem;
+}
+
+.chapter-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.65fr);
+  gap: clamp(4rem, 9vw, 9rem);
+  align-items: start;
+}
+
+.chapter-main {
+  min-width: 0;
+}
+
+.chapter-heading {
+  margin-bottom: clamp(2.75rem, 5vh, 4.5rem);
+}
+
+.chapter-number {
+  margin: 0 0 1.15rem;
+}
+
+.chapter-heading h2 {
+  max-width: 55rem;
+  margin: 0;
+  font-size: clamp(3.2rem, 7.2vw, 6.9rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.94;
+}
+
+.chapter-quote {
+  max-width: 35rem;
+  margin: 1.65rem 0 0;
+  color: #a9b9ce;
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 1.5vw, 1.22rem);
+  line-height: 1.6;
+}
+
+.chapter-copy {
+  max-width: 43rem;
+}
+
+.chapter-copy h3 {
+  position: relative;
+  margin: 3.7rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--moon-line);
+  color: var(--moon-ivory);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.chapter-copy h3:first-child {
+  margin-top: 0;
+}
+
+.chapter-copy p {
+  margin: 0 0 1.25rem;
+  color: #d3e0f3;
+  font-size: clamp(0.98rem, 1.12vw, 1.05rem);
+  line-height: 1.92;
+}
+
+.chapter-copy strong {
+  color: #f3f7ff;
+  font-weight: 600;
+}
+
+.chapter-side {
+  display: grid;
+  gap: 1.6rem;
+  min-width: 0;
+}
+
+/* CHAPTER 01 — FLIGHT LOG */
+
+.chapter-journey {
+  overflow: hidden;
+  padding: clamp(5rem, 8vh, 7.5rem) 0;
+  background: #080f1e;
+}
+
+.lunar-texture {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.035) 0 0.35rem, transparent 0.4rem),
+    radial-gradient(circle at 82% 24%, rgba(0, 0, 0, 0.4) 0 1.6rem, transparent 1.7rem),
+    radial-gradient(circle at 91% 38%, rgba(255, 255, 255, 0.025) 0 3rem, transparent 3.1rem);
+  opacity: 0.75;
+}
+
+.journey-side {
+  padding-top: clamp(0rem, 12vw, 9rem);
+}
+
+.mission-sequence {
+  padding: 0 0 1rem;
+  border-top: 1px solid var(--moon-line);
+  border-bottom: 1px solid var(--moon-line);
+}
+
+.mission-sequence .side-label {
+  margin: 0;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--moon-line);
+}
+
+.mission-sequence ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mission-sequence li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0.35rem 1rem;
+  padding: 1.5rem 0 1.5rem 1.25rem;
+}
+
+.mission-sequence li::before {
+  position: absolute;
+  top: 1.85rem;
+  left: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 1px solid var(--moon-gold-light);
+  border-radius: 50%;
+  background: #080f1e;
+  content: "";
+}
+
+.mission-sequence li::after {
+  position: absolute;
+  top: 2.3rem;
+  bottom: -1.85rem;
+  left: 0.2rem;
+  width: 1px;
+  background: rgba(225, 200, 145, 0.3);
+  content: "";
+}
+
+.mission-sequence li:last-child::after {
+  display: none;
+}
+
+.sequence-date {
+  grid-row: 1 / span 2;
+  color: #91a5bf;
+  font-family: var(--font-heading);
+  font-size: 0.61rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.mission-sequence strong {
+  color: #e1eafd;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+}
+
+.mission-sequence li p {
+  margin: 0;
+  color: #a9b9ce;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.info-card {
+  padding: 1.5rem;
+  border: 1px solid var(--moon-line);
+  background: rgba(16, 27, 48, 0.65);
+}
+
+.info-card .info-label {
+  margin: 0 0 0.9rem;
+}
+
+.info-card p:last-child {
+  margin: 0;
+  color: #c4d3e8;
+  font-size: 0.82rem;
+  line-height: 1.72;
+}
+
+.info-card strong {
+  color: #f3f7ff;
+}
+
+.muted-card {
+  border-color: rgba(200, 166, 106, 0.22);
+  background: rgba(200, 166, 106, 0.06);
+}
+
+/* CHAPTER 02 — SCIENCE DOSSIER */
+
+.chapter-achievement {
+  padding: clamp(5rem, 8vh, 7.5rem) 0;
+  background: var(--moon-panel);
+  color: var(--moon-ivory);
+}
+
+.achievement-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.42fr);
+  align-items: end;
+  gap: 3rem;
+}
+
+.chapter-achievement .chapter-number {
+  color: var(--moon-gold-light);
+}
+
+.chapter-achievement .chapter-heading h2 {
+  color: var(--moon-ivory);
+}
+
+.chapter-achievement .chapter-quote {
+  margin: 0 0 0.6rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(180, 213, 255, 0.3);
+  color: #b4c3d8;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: minmax(19rem, 0.88fr) minmax(0, 1.12fr);
+  gap: clamp(3rem, 8vw, 7.5rem);
+  align-items: start;
+}
+
+.science-photo .photo-frame {
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(180, 213, 255, 0.3);
+}
+
+.science-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 53% center;
+  filter: saturate(0.75) contrast(1.05);
+}
+
+.science-photo figcaption {
+  color: #a9b9ce;
+}
+
+.chapter-achievement .chapter-photo figcaption span:first-child {
+  color: var(--moon-gold-light);
+}
+
+.chapter-achievement .chapter-copy h3 {
+  border-color: var(--moon-line);
+  color: var(--moon-ivory);
+}
+
+.chapter-achievement .chapter-copy p {
+  color: #d3e0f3;
+}
+
+.chapter-achievement .chapter-copy strong {
+  color: #f3f7ff;
+}
+
+.discovery-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(5rem, 10vw, 9rem);
+  border-top: 1px solid rgba(180, 213, 255, 0.2);
+  border-bottom: 1px solid rgba(180, 213, 255, 0.2);
+}
+
+.discovery-card {
+  min-width: 0;
+  padding: 2rem clamp(1.5rem, 3.5vw, 3rem) 2.2rem;
+}
+
+.discovery-card:first-child {
+  padding-left: 0;
+}
+
+.discovery-card:last-child {
+  padding-right: 0;
+}
+
+.discovery-card + .discovery-card {
+  border-left: 1px solid rgba(180, 213, 255, 0.17);
+}
+
+.discovery-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 3.3rem;
+  color: #9fb1c8;
+  font-family: var(--font-heading);
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.discovery-meta span:first-child {
+  color: var(--moon-gold-light);
+}
+
+.discovery-card h3 {
+  margin: 0 0 0.8rem;
+  color: var(--moon-ivory);
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.discovery-card p {
+  margin: 0;
+  color: #c4d3e8;
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+/* CHAPTER 03 — ORBITAL EVIDENCE */
+
+.chapter-guardian {
+  overflow: hidden;
+  padding: clamp(5rem, 8vh, 7.5rem) 0;
+  background: #0b1528;
+}
+
+.map-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 5rem 5rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 50%, #000);
+  mask-image: linear-gradient(90deg, transparent, #000 50%, #000);
+  opacity: 0.6;
+}
+
+.chapter-guardian .chapter-quote {
+  color: #a9b9ce;
+}
+
+.guardian-side {
+  padding-top: clamp(0rem, 10vw, 7rem);
+}
+
+.evidence-photo {
+  padding: 1rem;
+  border: 1px solid rgba(180, 213, 255, 0.18);
+  background: #080f1e;
+}
+
+.evidence-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.15rem 0 1rem;
+  color: #91a5bf;
+  font-family: var(--font-heading);
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.evidence-header span:first-child {
+  color: var(--moon-gold-light);
+}
+
+.evidence-photo .photo-frame {
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.evidence-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.07);
+}
+
+.map-crosshair {
+  position: absolute;
+  top: 35%;
+  left: 21%;
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid rgba(225, 200, 145, 0.64);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.3rem rgba(0, 0, 0, 0.16);
+}
+
+.map-crosshair::before,
+.map-crosshair::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: rgba(225, 200, 145, 0.7);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.map-crosshair::before {
+  width: 3.2rem;
+  height: 1px;
+}
+
+.map-crosshair::after {
+  width: 1px;
+  height: 3.2rem;
+}
+
+.evidence-photo figcaption {
+  padding-bottom: 0.1rem;
+}
+
+.split-stage {
+  border: 1px solid var(--moon-line);
+  background: rgba(16, 27, 48, 0.5);
+}
+
+.split-stage > .side-label {
+  margin: 0;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid rgba(180, 213, 255, 0.14);
+}
+
+.split-stage > div {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.35rem 1.2rem;
+}
+
+.split-stage > div + div {
+  border-top: 1px solid rgba(180, 213, 255, 0.14);
+}
+
+.stage-direction {
+  color: #91a5bf;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.split-stage div p {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.split-stage strong {
+  color: var(--moon-gold-light);
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+}
+
+.split-stage div p span {
+  color: #a9b9ce;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+/* ENDING */
+
+.ending {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: min(48rem, 78svh);
+  place-items: center;
+  overflow: hidden;
+  padding: clamp(4.5rem, 7vh, 6rem) 0 clamp(7rem, 12vh, 9rem);
+  background: #050b19;
+  text-align: center;
+}
+
+.ending::before {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-image:
+    radial-gradient(circle at 18% 21%, rgba(255, 255, 255, 0.62) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 72% 14%, rgba(255, 255, 255, 0.48) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 88% 37%, rgba(255, 255, 255, 0.38) 0 1px, transparent 1.3px);
+  background-size: 29rem 23rem, 37rem 31rem, 41rem 27rem;
+  opacity: 0.34;
+  content: "";
+}
+
+.moon-horizon {
+  position: absolute;
+  right: 50%;
+  bottom: -18rem;
+  z-index: -2;
+  width: min(100rem, 142vw);
+  height: clamp(22rem, 35vw, 34rem);
+  border: 1px solid rgba(180, 213, 255, 0.22);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background:
+    radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.07) 0 2%, transparent 2.2%),
+    radial-gradient(circle at 62% 19%, rgba(0, 0, 0, 0.28) 0 5%, transparent 5.2%),
+    radial-gradient(circle at 55% 49%, rgba(255, 255, 255, 0.035) 0 3.2%, transparent 3.4%),
+    #263041;
+  box-shadow: 0 -2rem 7rem rgba(180, 213, 255, 0.06);
+  transform: translateX(50%);
+}
+
+.ending-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 65rem;
+}
+
+.ending .moon-kicker {
+  margin: 0 0 1.5rem;
+}
+
+.ending h2 {
+  margin: 0;
+  color: #c4d3e8;
+  font-size: clamp(3.2rem, 7.5vw, 7rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.ending h2 span {
+  display: block;
+  color: var(--moon-ivory);
+}
+
+.ending p:not(.moon-kicker) {
+  max-width: 34rem;
+  margin: 2rem auto 2.3rem;
+  color: #a9b9ce;
+  line-height: 1.8;
+}
+
+/* SOURCES */
+
+.sources {
+  padding: clamp(4.5rem, 7vh, 7rem) 0;
+  border-top: 1px solid rgba(180, 213, 255, 0.1);
+  background: #080f1e;
+}
+
+.sources-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(22rem, 1.22fr);
+  gap: 2rem clamp(4rem, 10vw, 10rem);
+  align-items: start;
+}
+
+.sources-intro .side-label {
+  margin: 0 0 1rem;
+}
+
+.sources h2 {
+  margin: 0;
+  color: var(--moon-ivory);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.08;
+}
+
+.sources-intro > p:last-child {
+  margin: 1.4rem 0 0;
+  color: #a9b9ce;
+  font-size: 0.83rem;
+  line-height: 1.75;
+}
+
+.source-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: sources;
+}
+
+.source-list li {
+  counter-increment: sources;
+  border-top: 1px solid rgba(180, 213, 255, 0.15);
+}
+
+.source-list li:last-child {
+  border-bottom: 1px solid rgba(180, 213, 255, 0.15);
+}
+
+.source-list a {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.4rem 0 1.4rem 2.7rem;
+  color: #c4d3e8;
+  font-size: 0.83rem;
+  line-height: 1.55;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.source-list a::before {
+  position: absolute;
+  margin-left: -2.7rem;
+  color: #8da3bd;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  content: "0" counter(sources);
+}
+
+.source-list a span:last-child {
+  color: var(--moon-gold-light);
+}
+
+.sources-credit {
+  grid-column: 2;
+  max-width: 42rem;
+  margin: 0;
+  color: #91a5bf;
+  font-size: 0.7rem;
+  line-height: 1.75;
+}
+
+/* QUICK RETURN TO THE TOP */
+
+.apollo-back-to-top {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2.5rem);
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  z-index: 90;
+  display: flex;
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  padding: 0.35rem;
+  border: 1px solid rgba(225, 200, 145, 0.65);
+  background: #111f37;
+  color: var(--moon-ivory);
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.35);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.apollo-back-to-top[hidden] {
+  display: none;
+}
+
+.apollo-back-to-top span:first-child {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.apollo-back-to-top:hover,
+.apollo-back-to-top:focus-visible {
+  border-color: var(--moon-gold-light);
+  background: #253653;
+}
+
+.apollo-back-to-top:focus-visible {
+  outline: 2px solid var(--moon-gold-light);
+  outline-offset: 3px;
+}
+
+/* FOOTER */
+
+.apollo-footer {
+  padding: 1.8rem 0;
+  border-top: 1px solid rgba(180, 213, 255, 0.12);
+  background: #050b19;
+}
+
+.footer-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  color: #91a5bf;
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+}
+
+.apollo-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #c4d3e8;
+  transition: color 0.2s ease;
+}
+
+/* PROGRESSIVE REVEALS */
+
+.reveal-enabled [data-reveal] {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-enabled [data-reveal-delay="1"] {
+  transition-delay: 0.1s;
+}
+
+.reveal-enabled [data-reveal-delay="2"] {
+  transition-delay: 0.2s;
+}
+
+.reveal-enabled [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: hover) {
+  .moon-button:hover {
+    background: transparent;
+    color: var(--moon-gold-light);
+    transform: translateY(-2px);
+  }
+
+  .moon-text-link:hover {
+    border-color: var(--moon-gold-light);
+    color: var(--moon-gold-light);
+  }
+
+  .source-list a:hover {
+    padding-left: 3rem;
+    color: var(--moon-ivory);
+  }
+
+  .apollo-footer a:hover {
+    color: var(--moon-gold-light);
+  }
+}
+
+@media (min-width: 961px) and (min-height: 760px) {
+  .science-photo,
+  .guardian-side {
+    position: sticky;
+    top: 6.5rem;
+  }
+}
+
+/* RESPONSIVE — TABLET */
+
+@media (max-width: 960px) {
+  .apollo-hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.75fr);
+    gap: 3rem;
+  }
+
+  .apollo-intro h1 {
+    font-size: clamp(4.2rem, 10.2vw, 6.3rem);
+  }
+
+  .chapter-layout,
+  .achievement-grid {
     grid-template-columns: 1fr;
+  }
+
+  .chapter-layout {
+    gap: 5rem;
+  }
+
+  .journey-side,
+  .guardian-side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-top: 0;
+  }
+
+  .mission-sequence,
+  .evidence-photo {
+    grid-row: span 2;
+  }
+
+  .achievement-grid {
+    gap: 4.5rem;
+  }
+
+  .science-photo {
+    width: 100%;
+  }
+
+  .science-photo .photo-frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .science-photo img {
+    object-position: center 60%;
+  }
+
+  .chapter-achievement .chapter-copy {
+    max-width: 46rem;
+  }
+
+  .sources-layout {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .apollo-hero {
+    min-height: auto;
+    padding-top: 5rem;
+  }
+
+  .apollo-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+
+  .mission-code {
+    margin-bottom: 3rem;
+  }
+
+  .apollo-hero-figure {
+    width: min(88%, 35rem);
+    justify-self: center;
+  }
+
+  .apollo-hero-figure .photo-frame {
+    aspect-ratio: 5 / 4;
+  }
+
+  .mission-facts {
+    margin-top: 5rem;
+  }
+
+  .chapter-nav-layout {
+    display: block;
+  }
+
+  .chapter-nav-title {
+    display: none;
+  }
+
+  .chapter-nav {
+    justify-content: flex-start;
+  }
+
+  .achievement-heading {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .chapter-achievement .chapter-quote {
+    max-width: 32rem;
+    margin: 0;
+  }
+
+  .discovery-meta {
+    margin-bottom: 2rem;
+  }
+
+  .sources-layout {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .sources-intro {
+    max-width: 35rem;
+  }
+
+  .sources-credit {
+    grid-column: auto;
+  }
+}
+
+/* RESPONSIVE — MOBILE */
+
+@media (max-width: 700px) {
+  .apollo-trail {
+    padding: 4.5rem 0;
+  }
+
+  .apollo-trail .trail-head {
+    margin-bottom: 2.5rem;
+  }
+
+  .chapter-nav {
+    gap: 2.2rem;
+    padding-right: 1.5rem;
+  }
+
+  .chapter-nav a {
+    min-height: 3.9rem;
+  }
+
+  .story-chapter {
+    scroll-margin-top: 3.9rem;
+  }
+
+  .journey-side,
+  .guardian-side {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-sequence,
+  .evidence-photo {
+    grid-row: auto;
+  }
+
+  .discovery-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .discovery-card,
+  .discovery-card:first-child,
+  .discovery-card:last-child {
+    padding: 1.7rem 0;
+  }
+
+  .discovery-card + .discovery-card {
+    border-top: 1px solid rgba(180, 213, 255, 0.17);
+    border-left: 0;
+  }
+
+  .discovery-meta {
+    margin-bottom: 1.5rem;
+  }
+
+  .ending {
+    min-height: 38rem;
+    padding-bottom: 8rem;
+  }
+
+  .moon-horizon {
+    bottom: -11rem;
+    width: 190vw;
+    height: clamp(17rem, 62vw, 24rem);
+  }
+}
+
+@media (max-width: 520px) {
+  .apollo-back-to-top {
+    right: 0.75rem;
+    bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .trail-progress-bar {
+    width: 100%;
+  }
+
+  .trail-node {
+    width: 3.1rem;
+    height: 3.1rem;
+    font-size: 1rem;
+  }
+
+  .trail-node .label {
+    width: 6rem;
+    font-size: 0.72rem;
+  }
+
+  .stop-card {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .stop-btn {
+    flex: 1;
+  }
+
+  .apollo-hero {
+    padding-top: 4rem;
+  }
+
+  .apollo-intro h1 {
+    font-size: clamp(3.25rem, 14vw, 4rem);
+  }
+
+  .mission-code {
+    font-size: 0.57rem;
+  }
+
+  .mission-code span + span::before {
+    width: 1.2rem;
+  }
+
+  .apollo-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .moon-button,
+  .moon-text-link {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .moon-text-link {
+    padding: 0.9rem 0;
+  }
+
+  .apollo-hero-figure {
+    width: calc(100% - 1rem);
+  }
+
+  .apollo-hero-figure::before {
+    inset: -0.7rem 0.7rem 0.7rem -0.7rem;
+  }
+
+  .mission-facts {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+
+  .mission-facts div,
+  .mission-facts div:first-child {
+    grid-template-columns: 4.6rem 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .mission-facts div + div {
+    border-top: 1px solid rgba(180, 213, 255, 0.14);
+    border-left: 0;
+  }
+
+  .mission-facts dt {
+    font-size: 1.4rem;
+  }
+
+  .chapter-heading h2 {
+    font-size: clamp(2.9rem, 14.5vw, 4.2rem);
+  }
+
+  .chapter-heading,
+  .achievement-heading {
+    margin-bottom: 3.2rem;
+  }
+
+  .chapter-copy h3 {
+    margin-top: 3rem;
+  }
+
+  .chapter-nav {
+    gap: 1.6rem;
+  }
+
+  .chapter-nav a {
+    font-size: 0.68rem;
+  }
+
+  .chapter-nav a > span:first-child {
+    display: none;
+  }
+
+  .science-photo .photo-frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .science-photo img {
+    object-position: 53% center;
+  }
+
+  .evidence-photo {
+    padding: 0.7rem;
+  }
+
+  .ending {
+    min-height: 35rem;
+    padding-top: 5.5rem;
+  }
+
+  .ending h2 {
+    font-size: clamp(2.8rem, 14vw, 4rem);
+  }
+
+  .source-list a {
+    padding-left: 2.3rem;
+  }
+
+  .source-list a::before {
+    margin-left: -2.3rem;
+  }
+
+  .footer-layout {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 360px) {
+  .chapter-nav {
+    gap: 1.2rem;
+  }
+
+  .chapter-nav a {
+    font-size: 0.63rem;
+  }
+
+  .mission-code {
+    flex-wrap: wrap;
+  }
+
+  .mission-code span + span::before {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apollo-hero .hero-stars,
+  .apollo-hero .hero-stars span {
+    animation: none;
+    transform: none;
+  }
+
+  .apollo-hero .hero-stars span {
+    opacity: 0.7;
+  }
+
+  .apollo-back-to-top,
+  .trail-progress,
+  .trail-node,
+  .trail-progress-bar .stars span {
+    transition: none;
+  }
+
+  .reveal-enabled [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  #reading-progress-bar {
+    transition: none;
   }
 }
