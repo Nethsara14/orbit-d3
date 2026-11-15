@@ -1,3 +1,7 @@
+<img width="500" height="500" alt="ORBIT_D3-removebg-preview" src="https://github.com/user-attachments/assets/27a77ea2-94fb-4d10-a6b6-57134449e034" />
+
+
+
 # Team ORBIT D3
 
 **Echoes of Space** was built by two developers for the **NASA Space Apps Challenge 2026**.
