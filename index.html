@@ -24,6 +24,7 @@
 
   <script src="js/navigation.js" defer></script>
   <script src="js/cards-carousel.js" defer></script>
+  <script src="js/nasa-news.js" defer></script>
 </head>
 
 <body>
@@ -56,7 +57,7 @@
 
   <main>
 
-    <!-- MEMBER 1: HERO SECTION -->
+
     <section id="home" class="hero" aria-labelledby="hero-title">
 
       <div class="hero-stars" aria-hidden="true"></div>
@@ -133,7 +134,7 @@
 
     </section>
 
-    <!-- MEMBER 2 WILL REPLACE THIS CONTENT -->
+    <!-- MISSIONS -->
     <section class="section" id="missions">
       <div class="container">
         <div class="section-heading">
@@ -204,6 +205,83 @@
       </div>
     </section>
 
+    <!-- TIMELINE -->
+    <section class="section" id="timeline" aria-labelledby="timeline-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="timeline-title">Fifty-five years on other worlds</h2>
+          <p class="muted">From the first footsteps on the Moon to a helicopter flying on Mars. Pick a moment to read
+            its
+            story.</p>
+        </div>
+
+        <ol class="timeline">
+
+          <li class="tl-item tl-moon">
+            <span class="tl-year">1969</span>
+            <span class="tl-meta">Moon · July</span>
+            <h3><a href="stories/apollo/index.html">Eagle lands</a></h3>
+            <p>Apollo 11's lunar module touches down at Tranquility Base.</p>
+          </li>
+
+          <li class="tl-item tl-moon">
+            <span class="tl-year">1971</span>
+            <span class="tl-meta">Moon · July</span>
+            <h3><a href="stories/apollo-15/index.html">First lunar rover</a></h3>
+            <p>Apollo 15 drives the Lunar Roving Vehicle 28 km across the Moon.</p>
+          </li>
+
+          <li class="tl-item tl-mars">
+            <span class="tl-year">2004</span>
+            <span class="tl-meta">Mars · January</span>
+            <h3><a href="stories/opportunity/index.html">Opportunity lands</a></h3>
+            <p>A rover built for 90 days begins a journey of nearly 15 years.</p>
+          </li>
+
+          <li class="tl-item tl-mars">
+            <span class="tl-year">2018</span>
+            <span class="tl-meta">Mars · June</span>
+            <h3><a href="stories/opportunity/index.html">Last signal</a></h3>
+            <p>A huge dust storm blocks the sunlight, and Opportunity falls silent.</p>
+          </li>
+
+          <li class="tl-item tl-mars">
+            <span class="tl-year">2021</span>
+            <span class="tl-meta">Mars · April</span>
+            <h3><a href="stories/ingenuity/index.html">First flight</a></h3>
+            <p>Ingenuity makes the first powered flight on another planet.</p>
+          </li>
+
+          <li class="tl-item tl-mars">
+            <span class="tl-year">2024</span>
+            <span class="tl-meta">Mars · January</span>
+            <h3><a href="stories/ingenuity/index.html">Final flight</a></h3>
+            <p>Ingenuity's flying days end after far more flights than planned.</p>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- NASA NEWS (live from NASA API) -->
+    <section class="section" id="news" aria-labelledby="news-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="news-title">Fresh from the NASA archive</h2>
+          <p class="muted">The newest Mars and Moon photos, pulled live from NASA's Image and Video Library.</p>
+        </div>
+
+        <p id="news-status" class="news-status" role="status" aria-live="polite">Loading the latest from NASA…</p>
+
+        <div id="news-grid" class="news-grid"></div>
+
+        <p class="news-credit">
+          Source: <a href="https://images.nasa.gov" target="_blank" rel="noopener noreferrer">NASA Image and Video
+            Library<span class="sr-only"> (opens in a new tab)</span> ↗</a>
+        </p>
+      </div>
+    </section>
+
     <!-- HOW IT WORKS -->
     <section class="section" id="how">
       <div class="container">
@@ -229,7 +307,7 @@
     </section>
 
 
-    <!-- MEMBER 3 WILL REPLACE THIS CONTENT -->
+
     <section id="about" class="section-placeholder section-placeholder-alt" aria-labelledby="about-heading">
 
       <div class="container">
@@ -250,7 +328,7 @@
 
   </main>
 
-  <!-- MEMBER 2: FOOTER -->
+
   <footer class="site-footer" aria-labelledby="footer-title">
     <div class="container">
 
@@ -282,6 +360,7 @@
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#missions">Choose a mission</a></li>
+            <li><a href="#timeline">Timeline</a></li>
             <li><a href="#how">How stories work</a></li>
             <li><a href="#about">About</a></li>
           </ul>
