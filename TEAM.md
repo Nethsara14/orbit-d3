@@ -11,8 +11,8 @@
 - **Role:** Team Leader, Developer
 - **Worked on:** Footer, mission cards, Apollo 15, Opportunity and Ingenuity stories
 - **GitHub:** [@Nethsara14](https://github.com/Nethsara14)
-- **LinkedIn:** [LinkedIn profile](https://www.linkedin.com/in/your-linkedin/)
-- **Portfolio:** [your-portfolio-link](https://your-portfolio.example)
+- **LinkedIn:** [LinkedIn profile](https://www.linkedin.com/in/sasindu-nethsara-karanayaka-se/)
+- **Portfolio:** [your-portfolio-link](https://devnethsara.com/)
 
 ---
 
@@ -24,7 +24,6 @@
 - **Worked on:** Header, page design, Apollo 11 story
 - **GitHub:** [@Hirushan450](https://github.com/Hirushan450)
 - **LinkedIn:** [LinkedIn profile](https://www.linkedin.com/in/their-linkedin/)
-- **Portfolio:** [their-portfolio-link](https://their-portfolio.example)
 
 ---
 
