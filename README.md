@@ -124,9 +124,6 @@ Then open a Pull Request into `main` and ask a teammate to review it.
 | **Sasindu Nethsara Karanayaka** | Team Leader | Footer, mission cards, Apollo 15, Opportunity and Ingenuity stories | [@Nethsara14](https://github.com/Nethsara14) |
 | **Pasindu Hirushan** | Developer | Header, page design, Apollo 11 story | [@Hirushan450](https://github.com/Hirushan450) |
 
-
-## AI tool usage
-
 ## AI tool usage
 
 Claude (Anthropic) was used as a coding assistant to help write and debug HTML, CSS and JavaScript and to
