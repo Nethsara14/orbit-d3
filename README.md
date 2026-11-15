@@ -1,2 +1,144 @@
-# orbit-d3
-Echoes of Space - Interactive storytelling website about NASA's discarded equipment on the Moon and Mars (Team ORBIT D3).
+# ORBIT D3 · Echoes of Space
+
+> Their missions ended. Their stories didn't.
+
+[![NASA Space Apps Challenge 2026](https://img.shields.io/badge/NASA%20Space%20Apps-2026-0b3d91)](https://www.spaceappschallenge.org/)
+[![NASA API](https://img.shields.io/badge/NASA%20API-Image%20and%20Video%20Library-1d70b8)](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Built with HTML, CSS and JavaScript](https://img.shields.io/badge/Built%20with-HTML%20%7C%20CSS%20%7C%20JavaScript-orange)
+
+**Echoes of Space** is an interactive storytelling website about NASA equipment left behind on the Moon and Mars.
+Built by **Team ORBIT D3** for the **NASA Space Apps Challenge 2026**
+(challenge: [NASA's Discarded Equipment Storytelling](https://www.spaceappschallenge.org/2026/challenges/nasas-discarded-equipment-storytelling/)).
+
+## The stories
+
+| Mission | World | Story page |
+|---|---|---|
+| Apollo 11: Eagle | Moon · 1969 | `stories/apollo/` |
+| Apollo 15: Lunar Rover | Moon · 1971 | `stories/apollo-15/` |
+| Opportunity | Mars · 2004–2018 | `stories/opportunity/` |
+| Ingenuity | Mars · 2021–2024 | `stories/ingenuity/` |
+
+Each story follows the same three chapters: **Beginning → Discoveries → Legacy**.
+The mission pages use an interactive trail map: explore each stop to follow the journey from launch to the final signal.
+
+## Features
+
+- Animated hero with a drifting starfield
+- Mission cards carousel with pagination dots and auto-scroll
+- Mission timeline (1969 → 2024)
+- Live "Fresh from the NASA archive" section using the NASA Image and Video Library API (no API key needed)
+- Story pages with a photo slideshow and an interactive mission trail map
+- Responsive layout (desktop, tablet, mobile) and accessibility basics: skip link, keyboard focus, reduced-motion support
+
+## Tech stack
+
+Plain **HTML, CSS and JavaScript**. No framework, no build step and no installation needed.
+It is a static website, so it runs by simply opening `index.html` (see "Run locally" below).
+
+## Project structure
+
+```
+orbit-d3/
+├── index.html              Homepage
+├── README.md               Project overview
+├── TEAM.md                 Team member profiles
+├── LICENSE                 MIT License
+├── assets/
+│   └── images/
+│       ├── .gitkeep
+│       └── hero-space.svg  Hero illustration
+├── css/
+│   ├── footer.css          Footer
+│   ├── global.css          Shared tokens and base styles
+│   ├── hero.css            Navbar and hero
+│   ├── home.css            Missions, timeline, NASA news
+│   └── story.css           Shared story page design
+├── data/
+│   └── mission-records.json
+├── js/
+│   ├── cards-carousel.js   Mission cards dots and auto-scroll
+│   ├── gallery.js          Story photo slideshow
+│   ├── nasa-news.js        NASA archive section (API)
+│   ├── navigation.js       Mobile menu
+│   ├── reveal.js           Scroll reveal effects
+│   └── story.js            Trail map and stop popups
+└── stories/
+    ├── apollo/             Apollo 11: Eagle
+    │   ├── index.html
+    │   ├── script.js
+    │   └── style.css
+    ├── apollo-15/          Apollo 15: Lunar Rover
+    │   ├── index.html
+    │   ├── script.js
+    │   └── style.css
+    ├── ingenuity/          Ingenuity
+    │   ├── index.html
+    │   ├── script.js
+    │   └── style.css
+    └── opportunity/        Opportunity
+        ├── index.html
+        ├── script.js
+        └── style.css
+```
+
+Each story folder has its own `index.html`, `script.js` (mission data) and `style.css` (theme colours).
+
+## Run locally
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/Nethsara14/orbit-d3.git
+   ```
+2. Open the folder in VS Code and start **Live Server** on `index.html`
+   (or run `npx serve` or `python -m http.server`, then open the address it shows).
+
+An internet connection is needed for NASA photos, Google Fonts and the NASA API.
+
+## Team workflow
+
+One repository, small pull requests and a stable `main` branch.
+
+```bash
+git switch main
+git pull --ff-only origin main
+git switch -c feature/your-task
+# ...edit files...
+git add <files>
+git commit -m "Describe the change"
+git push -u origin feature/your-task
+```
+
+Then open a Pull Request into `main` and ask a teammate to review it.
+
+## Team
+
+- **Team name:** ORBIT D3
+- **Challenge:** NASA Space Apps Challenge 2026, NASA's Discarded Equipment Storytelling
+- **Team size:** 2
+- **Full team profiles:** [TEAM.md](TEAM.md) (photos, LinkedIn and portfolio links)
+
+| Member | Role | Responsibility | GitHub |
+|---|---|---|---|
+| **Sasindu Nethsara Karanayaka** | Team Leader | Footer, mission cards, Apollo 15, Opportunity and Ingenuity stories | [@Nethsara14](https://github.com/Nethsara14) |
+| **Pasindu Hirushan** | Developer | Header, page design, Apollo 11 story | [@Hirushan450](https://github.com/Hirushan450) |
+
+## AI tool usage
+
+Claude (Anthropic) was used as a coding assistant to help write and debug HTML, CSS and JavaScript and to
+suggest wording. All mission facts and image credits were checked against NASA sources by the team.
+
+## License
+
+The code in this repository is released under the [MIT License](LICENSE).
+© 2026 ORBIT D3 Team (Sasindu Nethsara Karanayaka, Pasindu Hirushan).
+
+## NASA media and credits
+
+Mission photos and facts come from NASA (NASA/JPL-Caltech, NASA/JSC and others) and are credited on each page.
+They are **not** covered by the MIT License and remain subject to
+[NASA's media usage guidelines](https://www.nasa.gov/nasa-brand-center/images-and-media/).
+Live data comes from the [NASA Image and Video Library](https://images.nasa.gov).
+
+This is an educational student project and **not an official NASA website**.
