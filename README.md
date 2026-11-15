@@ -96,9 +96,10 @@ Then open a Pull Request into `main` and ask a teammate to review it.
 
 ## Team
 
-**Team name:** ORBIT D3
-**Challenge:** NASA Space Apps Challenge 2026, NASA's Discarded Equipment Storytelling
-**Team size:** 2
+- **Team name:** ORBIT D3
+- **Challenge:** NASA Space Apps Challenge 2026, NASA's Discarded Equipment Storytelling
+- **Team size:** 2
+- **Full team profiles:** [TEAM.md](TEAM.md) (photos, LinkedIn and portfolio links)
 
 | Member | Role | Responsibility | GitHub |
 |---|---|---|---|
