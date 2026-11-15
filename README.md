@@ -3,6 +3,7 @@
 > Their missions ended. Their stories didn't.
 
 [![NASA Space Apps Challenge 2026](https://img.shields.io/badge/NASA%20Space%20Apps-2026-0b3d91)](https://www.spaceappschallenge.org/)
+[![NASA API](https://img.shields.io/badge/NASA%20API-Image%20and%20Video%20Library-1d70b8)](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Built with HTML, CSS and JavaScript](https://img.shields.io/badge/Built%20with-HTML%20%7C%20CSS%20%7C%20JavaScript-orange)
 
