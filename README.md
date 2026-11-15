@@ -95,6 +95,10 @@ Then open a Pull Request into `main` and ask a teammate to review it.
 
 ## Team
 
+**Team name:** ORBIT D3
+**Challenge:** NASA Space Apps Challenge 2026, NASA's Discarded Equipment Storytelling
+**Team size:** 2
+
 | Member | Role | Responsibility | GitHub |
 |---|---|---|---|
 | **Sasindu Nethsara Karanayaka** | Team Leader | Footer, mission cards, Apollo 15, Opportunity and Ingenuity stories | [@Nethsara14](https://github.com/Nethsara14) |
