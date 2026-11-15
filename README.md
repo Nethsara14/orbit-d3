@@ -122,7 +122,7 @@ Then open a Pull Request into `main` and ask a teammate to review it.
 | Member | Role | Responsibility | GitHub |
 |---|---|---|---|
 | **Sasindu Nethsara Karanayaka** | Team Leader | Footer, mission cards, Apollo 15, Opportunity and Ingenuity stories | [@Nethsara14](https://github.com/Nethsara14) |
-| **Pasindu Hirushan** | Developer | Header, page design, Apollo 11 story | [@Hirushan450](https://github.com/Hirushan450) |
+| **Pasindu Hirushan** | Developer | Header, page design, Apollo 11 story, Project presentation Slides | [@Hirushan450](https://github.com/Hirushan450) |
 
 ## AI tool usage
 
