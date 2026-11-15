@@ -130,6 +130,44 @@
 
   background-size: 360px 320px;
   opacity: .55;
+
+  /* slow drift: tile size eka exactly gaman karana nisa loop eka seamless */
+  animation: stars-drift 35s linear infinite;
+}
+
+/* second layer: podi stars, adu wegayen, twinkle wenawa */
+.hero-stars::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(1px 1px at 18% 42%, #fff 97%, transparent),
+    radial-gradient(1.2px 1.2px at 63% 22%, #cfe6ff 97%, transparent),
+    radial-gradient(1px 1px at 38% 84%, #fff 97%, transparent),
+    radial-gradient(1.4px 1.4px at 91% 74%, #a9cfff 97%, transparent),
+    radial-gradient(1px 1px at 7% 91%, #fff 97%, transparent),
+    radial-gradient(1.2px 1.2px at 77% 48%, #fff 97%, transparent);
+
+  background-size: 520px 460px;
+  animation:
+    stars-drift-far 60s linear infinite,
+    stars-twinkle 5s ease-in-out infinite;
+}
+
+@keyframes stars-drift {
+  from { background-position: 0 0; }
+  to   { background-position: -360px 320px; }
+}
+
+@keyframes stars-drift-far {
+  from { background-position: 0 0; }
+  to   { background-position: -520px 460px; }
+}
+
+@keyframes stars-twinkle {
+  0%, 100% { opacity: .35; }
+  50%      { opacity: 1; }
 }
 
 /* HERO CONTENT */
@@ -440,8 +478,14 @@
   }
 
   .hero-layout {
-    padding-top: 68px;
-    padding-bottom: 92px;
+    padding-top: 52px;
+    padding-bottom: 48px;
+    gap: 0;
+  }
+
+  /* mobile eke scroll hint eka epa, space ekak thiyenawa */
+  .scroll-hint {
+    display: none;
   }
 
   .hero h1 {
@@ -458,7 +502,13 @@
   }
 
   .hero-visual {
-    margin-top: 18px;
+    width: min(92%, 400px);
+    margin: 8px auto 0;
+  }
+
+  /* image eka athule thiyena empty space eka kapanawa */
+  .hero-image {
+    margin-block: -9%;
   }
 
   .visual-label {
@@ -468,12 +518,12 @@
 
   .visual-label-top {
     right: 0;
-    top: 5%;
+    top: 2%;
   }
 
   .visual-label-bottom {
     left: 0;
-    bottom: 7%;
+    bottom: 2%;
   }
 }
 

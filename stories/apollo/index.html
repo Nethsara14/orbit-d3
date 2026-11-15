@@ -17,6 +17,7 @@
 
   <script src="../../js/navigation.js" defer></script>
   <script src="script.js" defer></script>
+  <script src="../../js/story.js" defer></script>
 </head>
 
 <body class="apollo-page">
@@ -47,9 +48,13 @@
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     <section class="apollo-hero" aria-labelledby="story-title">
-      <div class="hero-stars" aria-hidden="true"></div>
+      <div class="hero-stars" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
 
       <div class="container apollo-hero-grid">
         <div class="apollo-intro" data-reveal>
@@ -58,7 +63,13 @@
             <span>JULY 1969</span>
           </p>
 
-          <p class="moon-kicker">ECHOES OF SPACE / THE MOON / APOLLO 11</p>
+          <nav class="moon-kicker moon-breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html#home">ECHOES OF SPACE</a>
+            <span aria-hidden="true">/</span>
+            <a href="../../index.html#missions">THE MOON</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">APOLLO 11</span>
+          </nav>
 
           <h1 id="story-title">
             <span class="title-prefix">The</span>
@@ -74,7 +85,7 @@
           </p>
 
           <div class="apollo-hero-actions">
-            <a class="moon-button" href="#journey">
+            <a class="moon-button" href="#trail">
               <span>Begin the Story</span>
               <span aria-hidden="true">↓</span>
             </a>
@@ -125,6 +136,47 @@
           <dd>Descent stage left behind</dd>
         </div>
       </dl>
+    </section>
+
+    <section class="apollo-trail" id="trail" aria-labelledby="trail-title">
+      <div class="container">
+        <header class="trail-head" data-reveal>
+          <p class="chapter-number">EAGLE / MISSION LOG</p>
+          <h2 id="trail-title">The mission trail</h2>
+          <p class="trail-intro">
+            Select each numbered stop to follow Eagle from the launch of Apollo 11
+            to the evidence still visible on the Moon.
+          </p>
+
+          <div class="trail-progress-bar">
+            <div class="stars" aria-hidden="true">
+              <span>★</span><span>★</span><span>★</span>
+            </div>
+            <p id="progress-text" aria-live="polite">0 of 7 stops explored</p>
+            <button id="trail-reset" class="link-button" type="button">Reset</button>
+          </div>
+        </header>
+
+        <div class="trail-map" aria-label="Seven stops in the Apollo 11 mission trail" data-reveal>
+          <svg viewBox="0 0 360 940" aria-hidden="true" focusable="false">
+            <path class="trail-base"
+                  d="M 70 50 C 330 50 330 190 180 190 C 30 190 30 330 180 330 C 330 330 330 470 180 470 C 30 470 30 610 180 610 C 330 610 330 750 180 750 C 30 750 30 890 180 890"></path>
+            <path class="trail-progress"
+                  d="M 70 50 C 330 50 330 190 180 190 C 30 190 30 330 180 330 C 330 330 330 470 180 470 C 30 470 30 610 180 610 C 330 610 330 750 180 750 C 30 750 30 890 180 890"></path>
+          </svg>
+          <div class="trail-nodes"></div>
+        </div>
+
+        <p class="trail-done" id="trail-done" hidden>
+          Mission complete. You followed Eagle from launch to its lasting lunar legacy.
+        </p>
+
+        <noscript>
+          <p class="trail-fallback">
+            The interactive trail needs JavaScript. The complete story is available in the chapters below.
+          </p>
+        </noscript>
+      </div>
     </section>
 
     <div class="chapter-nav-wrap">
@@ -574,6 +626,29 @@
       </div>
     </section>
   </main>
+
+  <dialog id="stop-dialog" aria-labelledby="stop-title-text" aria-describedby="stop-text">
+    <article class="stop-card">
+      <button class="stop-close" id="stop-close" type="button" aria-label="Close mission stop">×</button>
+      <p class="stop-step" id="stop-step"></p>
+      <p class="stop-date" id="stop-date"></p>
+      <h2 id="stop-title-text"></h2>
+      <p class="stop-text" id="stop-text"></p>
+      <aside class="stop-fact">
+        <strong>Did you know?</strong>
+        <span id="stop-fact"></span>
+      </aside>
+      <div class="stop-nav">
+        <button type="button" id="stop-prev" class="stop-btn">← Previous</button>
+        <button type="button" id="stop-next" class="stop-btn stop-btn-primary">Next →</button>
+      </div>
+    </article>
+  </dialog>
+
+  <button class="apollo-back-to-top" id="back-to-top" type="button" aria-label="Back to top" hidden>
+    <span aria-hidden="true">↑</span>
+    <span aria-hidden="true">TOP</span>
+  </button>
 
   <footer class="apollo-footer">
     <div class="container footer-layout">
