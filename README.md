@@ -48,7 +48,11 @@ orbit-d3/
 ├── assets/
 │   └── images/
 │       ├── .gitkeep
-│       └── hero-space.svg  Hero illustration
+│       ├── hero-space.svg  Hero illustration
+│       └── apollo/         Apollo 11 story images
+│           ├── apollo-science.jpg
+│           ├── eagle-descent-lro.jpg
+│           └── eagle-lunar-module.jpg
 ├── css/
 │   ├── footer.css          Footer
 │   ├── global.css          Shared tokens and base styles
@@ -127,7 +131,8 @@ Then open a Pull Request into `main` and ask a teammate to review it.
 ## AI tool usage
 
 Claude (Anthropic) was used as a coding assistant to help write and debug HTML, CSS and JavaScript and to
-suggest wording. All mission facts and image credits were checked against NASA sources by the team.
+suggest wording and image sources. Mission facts and image credits were adapted from NASA sources and
+reviewed by the team before submission.
 
 ## License
 
