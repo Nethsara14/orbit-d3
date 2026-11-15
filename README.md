@@ -42,26 +42,45 @@ It is a static website, so it runs by simply opening `index.html` (see "Run loca
 ```
 orbit-d3/
 ├── index.html              Homepage
-├── assets/images/          Local images (hero illustration, etc.)
+├── README.md               Project overview
+├── TEAM.md                 Team member profiles
+├── LICENSE                 MIT License
+├── assets/
+│   └── images/
+│       ├── .gitkeep
+│       └── hero-space.svg  Hero illustration
 ├── css/
+│   ├── footer.css          Footer
 │   ├── global.css          Shared tokens and base styles
 │   ├── hero.css            Navbar and hero
 │   ├── home.css            Missions, timeline, NASA news
-│   ├── story.css           Shared story page design
-│   └── footer.css          Footer
+│   └── story.css           Shared story page design
+├── data/
+│   └── mission-records.json
 ├── js/
-│   ├── navigation.js       Mobile menu
 │   ├── cards-carousel.js   Mission cards dots and auto-scroll
-│   ├── nasa-news.js        NASA archive section (API)
-│   ├── story.js            Trail map and stop popups
 │   ├── gallery.js          Story photo slideshow
-│   └── reveal.js           Scroll reveal effects
-├── data/mission-records.json
+│   ├── nasa-news.js        NASA archive section (API)
+│   ├── navigation.js       Mobile menu
+│   ├── reveal.js           Scroll reveal effects
+│   └── story.js            Trail map and stop popups
 └── stories/
-    ├── apollo/
-    ├── apollo-15/
-    ├── opportunity/
-    └── ingenuity/
+    ├── apollo/             Apollo 11: Eagle
+    │   ├── index.html
+    │   ├── script.js
+    │   └── style.css
+    ├── apollo-15/          Apollo 15: Lunar Rover
+    │   ├── index.html
+    │   ├── script.js
+    │   └── style.css
+    ├── ingenuity/          Ingenuity
+    │   ├── index.html
+    │   ├── script.js
+    │   └── style.css
+    └── opportunity/        Opportunity
+        ├── index.html
+        ├── script.js
+        └── style.css
 ```
 
 Each story folder has its own `index.html`, `script.js` (mission data) and `style.css` (theme colours).
