@@ -1,0 +1,104 @@
+
+:root {
+  --color-bg: #050b19;
+  --color-surface: #101b30;
+  --color-text: #f3f7ff;
+  --color-muted: #a9b9ce;
+  --color-accent: #64d8ff;
+  --color-accent-2: #8277ff;
+
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 82px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+}
+
+.container {
+  width: min(1140px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* Temporary sections for team integration */
+
+.section-placeholder {
+  padding: 92px 0;
+  min-height: 290px;
+  background: #0a1427;
+}
+
+.section-placeholder-alt {
+  background: #080f1e;
+}
+
+.section-kicker {
+  color: var(--color-accent);
+  font-size: .74rem;
+  letter-spacing: .19em;
+  font-weight: 700;
+}
+
+.section-placeholder h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin: 12px 0;
+}
+
+.section-placeholder p:not(.section-kicker) {
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.section-placeholder .placeholder-note {
+  opacity: .7;
+  font-size: .87rem;
+}
+
+/* Accessibility: reduce animations if requested */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
