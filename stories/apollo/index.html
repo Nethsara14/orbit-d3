@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover Eagle's journey, scientific achievements and legacy on the Moon through NASA's Apollo 11 mission.">
+
+  <title>The Silent Moon | Echoes of Space — ORBIT D3</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/hero.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="../../js/navigation.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body class="apollo-page">
+  <a class="skip-link" href="#main-content">Skip to story</a>
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a class="brand" href="../../index.html#home" aria-label="ORBIT D3 Home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>ORBIT <strong>D3</strong></span>
+      </a>
+
+      <button class="menu-toggle"
+              type="button"
+              aria-label="Open navigation"
+              aria-expanded="false"
+              aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+        <a class="nav-link" href="../../index.html#home">Home</a>
+        <a class="nav-link" href="../../index.html#missions">Missions</a>
+        <a class="nav-link" href="../../index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="apollo-hero" aria-labelledby="story-title">
+      <div class="hero-stars" aria-hidden="true"></div>
+
+      <div class="container apollo-hero-grid">
+        <div class="apollo-intro" data-reveal>
+          <p class="mission-code">
+            <span>MISSION 11</span>
+            <span>JULY 1969</span>
+          </p>
+
+          <p class="moon-kicker">ECHOES OF SPACE / THE MOON / APOLLO 11</p>
+
+          <h1 id="story-title">
+            <span class="title-prefix">The</span>
+            <span class="title-main">Silent Moon</span>
+          </h1>
+
+          <p class="apollo-subtitle">Eagle's Legacy — The Machine That Stayed Behind</p>
+
+          <p class="apollo-summary">
+            In 1969, Eagle helped two humans land on the Moon.
+            The astronauts came home. One part of Eagle never did.
+            This is its story.
+          </p>
+
+          <div class="apollo-hero-actions">
+            <a class="moon-button" href="#journey">
+              <span>Begin the Story</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+
+            <a class="moon-text-link" href="../../index.html#missions">
+              <span aria-hidden="true">←</span>
+              All missions
+            </a>
+          </div>
+
+          <p class="story-notice">
+            Narrated creatively from Eagle's perspective.
+            Historical events and images are sourced from NASA.
+          </p>
+        </div>
+
+        <figure class="apollo-hero-figure" data-reveal data-reveal-delay="1">
+          <div class="photo-frame">
+            <img
+              src="../../assets/images/apollo/eagle-lunar-module.jpg"
+              alt="NASA photograph of Apollo 11 lunar module Eagle on the Moon, with Buzz Aldrin unloading equipment"
+              width="1000"
+              height="1000"
+            >
+            <span class="frame-corner frame-corner-top" aria-hidden="true"></span>
+            <span class="frame-corner frame-corner-bottom" aria-hidden="true"></span>
+            <span class="photo-index" aria-hidden="true">FRAME / 5927</span>
+          </div>
+
+          <figcaption>
+            <span>01 / LUNAR SURFACE</span>
+            <span>Apollo 11 Lunar Module Eagle on the Moon · NASA / AS11-40-5927</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <dl class="container mission-facts" aria-label="Mission facts" data-reveal>
+        <div>
+          <dt>1969</dt>
+          <dd>Historic moon landing</dd>
+        </div>
+        <div>
+          <dt>2</dt>
+          <dd>Astronauts on the surface</dd>
+        </div>
+        <div>
+          <dt>1</dt>
+          <dd>Descent stage left behind</dd>
+        </div>
+      </dl>
+    </section>
+
+    <div class="chapter-nav-wrap">
+      <div class="container chapter-nav-layout">
+        <span class="chapter-nav-title" aria-hidden="true">FLIGHT LOG</span>
+
+        <nav class="chapter-nav" aria-label="Apollo story chapters">
+          <a href="#journey" data-chapter-link>
+            <span aria-hidden="true">01</span>
+            <span>Journey</span>
+          </a>
+          <a href="#achievement" data-chapter-link>
+            <span aria-hidden="true">02</span>
+            <span>Achievement</span>
+          </a>
+          <a href="#guardian" data-chapter-link>
+            <span aria-hidden="true">03</span>
+            <span>Silent Guardian</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="reading-progress"
+           role="progressbar"
+           aria-label="Story reading progress"
+           aria-valuemin="0"
+           aria-valuemax="100"
+           aria-valuenow="0">
+        <span id="reading-progress-bar"></span>
+      </div>
+    </div>
+
+    <article class="story" aria-label="The story of Apollo 11 Lunar Module Eagle">
+      <section id="journey"
+               class="story-chapter chapter-journey"
+               aria-labelledby="journey-title"
+               data-chapter>
+        <div class="lunar-texture" aria-hidden="true"></div>
+
+        <div class="container chapter-layout">
+          <div class="chapter-main">
+            <header class="chapter-heading" data-reveal>
+              <p class="chapter-number">CHAPTER 01 · JULY 16–20, 1969</p>
+              <h2 id="journey-title">The Journey</h2>
+              <p class="chapter-quote">Before the silence, there was a journey that changed history.</p>
+            </header>
+
+            <div class="chapter-copy" data-reveal>
+              <h3>The beginning</h3>
+
+              <p>
+                My name is Eagle. I was a special spacecraft called a
+                <strong>Lunar Module</strong>.
+                My mission was extraordinary: help the first humans land on the Moon.
+              </p>
+
+              <p>
+                On July 16, 1969, a powerful Saturn V rocket launched Apollo 11
+                into space. Three astronauts began the journey:
+                Neil Armstrong, Buzz Aldrin, and Michael Collins.
+              </p>
+
+              <h3>Approaching the Moon</h3>
+
+              <p>
+                Four days later, it was my turn. Armstrong and Aldrin were
+                inside me while Collins stayed aboard Columbia,
+                orbiting the Moon.
+              </p>
+
+              <p>
+                I separated from Columbia and began my descent.
+                My engine slowed me as the gray surface grew closer.
+                Rocks and a crater made the planned landing area dangerous,
+                so Armstrong guided me toward safer ground.
+              </p>
+
+              <h3>A historic landing</h3>
+
+              <p>
+                On July 20, 1969, I touched down in the
+                <strong>Sea of Tranquility</strong>.
+                For the first time, humans had safely landed on the Moon.
+              </p>
+
+              <p>
+                But my greatest adventure had only begun.
+                Soon, two astronauts would explore another world —
+                and one part of me would remain behind.
+              </p>
+            </div>
+          </div>
+
+          <aside class="chapter-side journey-side" aria-label="Chapter one mission sequence and learning notes">
+            <div class="mission-sequence" data-reveal data-reveal-delay="1">
+              <p class="side-label">MISSION SEQUENCE</p>
+              <ol>
+                <li>
+                  <span class="sequence-date">16 JUL</span>
+                  <strong>Launch</strong>
+                  <p>Saturn V sends Apollo 11 toward the Moon.</p>
+                </li>
+                <li>
+                  <span class="sequence-date">20 JUL</span>
+                  <strong>Descent</strong>
+                  <p>Eagle separates from Columbia and searches for safe ground.</p>
+                </li>
+                <li>
+                  <span class="sequence-date">20 JUL</span>
+                  <strong>Touchdown</strong>
+                  <p>Eagle lands in the Sea of Tranquility.</p>
+                </li>
+              </ol>
+            </div>
+
+            <div class="info-card" data-reveal>
+              <p class="info-label">WHY DID EAGLE MATTER?</p>
+              <p>
+                Eagle was built to land astronauts on the Moon
+                and lift them back into lunar orbit.
+              </p>
+            </div>
+
+            <div class="info-card muted-card" data-reveal>
+              <p class="info-label">LEARN A WORD</p>
+              <p>
+                <strong>Lunar Module</strong> —
+                a spacecraft designed for landing on
+                and launching from the Moon.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="achievement"
+               class="story-chapter chapter-achievement"
+               aria-labelledby="achievement-title"
+               data-chapter>
+        <div class="container">
+          <header class="chapter-heading achievement-heading" data-reveal>
+            <div>
+              <p class="chapter-number">CHAPTER 02 · JULY 1969</p>
+              <h2 id="achievement-title">The Achievement</h2>
+            </div>
+            <p class="chapter-quote">The greatest discoveries begin with a single step.</p>
+          </header>
+
+          <div class="achievement-grid">
+            <figure class="chapter-photo science-photo" data-reveal>
+              <div class="photo-frame">
+                <img
+                  src="../../assets/images/apollo/apollo-science.jpg"
+                  alt="Buzz Aldrin sets up the Apollo 11 passive seismic experiment on the Moon"
+                  loading="lazy"
+                  width="1000"
+                  height="1000"
+                >
+                <span class="photo-index" aria-hidden="true">SCIENCE / 5949</span>
+              </div>
+
+              <figcaption>
+                <span>02 / FIELD SCIENCE</span>
+                <span>Buzz Aldrin setting up scientific equipment · NASA / AS11-40-5949</span>
+              </figcaption>
+            </figure>
+
+            <div class="chapter-copy" data-reveal data-reveal-delay="1">
+              <h3>More than footprints</h3>
+
+              <p>
+                My name is Eagle. I had landed safely,
+                but the mission was far from over.
+              </p>
+
+              <p>
+                Neil Armstrong became the first human to walk on the Moon.
+                Buzz Aldrin joined him. Together, they explored
+                a quiet, dusty world full of questions.
+              </p>
+
+              <h3>Discovering a new world</h3>
+
+              <p>
+                My astronauts collected rocks and soil.
+                About <strong>21.5 kilograms</strong> of lunar samples
+                returned to Earth so scientists could study
+                the Moon's history.
+              </p>
+
+              <p>
+                They also placed special instruments on the surface.
+                A <strong>passive seismic experiment</strong> measured
+                vibrations to help scientists understand the Moon's interior.
+                A <strong>laser retroreflector</strong> reflected laser light
+                from Earth, helping researchers measure the Earth–Moon distance.
+              </p>
+
+              <p>
+                A separate <strong>solar wind experiment</strong>
+                collected particles from the Sun in a sheet of foil
+                that the astronauts later returned to Earth for study.
+              </p>
+
+              <h3>The science made possible</h3>
+
+              <p>
+                I did not collect samples or make measurements myself.
+                But I carried the astronauts and equipment
+                that made this science possible.
+              </p>
+
+              <p>
+                When their work was finished,
+                my astronauts prepared for the journey home.
+              </p>
+            </div>
+          </div>
+
+          <div class="discovery-cards" aria-label="Apollo 11 science explained">
+            <article class="discovery-card" data-reveal>
+              <div class="discovery-meta">
+                <span>01</span>
+                <span>SAMPLES</span>
+              </div>
+              <h3>Moon rocks</h3>
+              <p>Samples helped scientists study the Moon's composition and past.</p>
+            </article>
+
+            <article class="discovery-card" data-reveal data-reveal-delay="1">
+              <div class="discovery-meta">
+                <span>02</span>
+                <span>PASSIVE SEISMIC</span>
+              </div>
+              <h3>Moon vibrations</h3>
+              <p>A passive seismometer recorded movement to explore the Moon's interior.</p>
+            </article>
+
+            <article class="discovery-card" data-reveal data-reveal-delay="2">
+              <div class="discovery-meta">
+                <span>03</span>
+                <span>LASER RANGING</span>
+              </div>
+              <h3>Laser reflections</h3>
+              <p>A retroreflector helps scientists measure the distance between Earth and the Moon.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="guardian"
+               class="story-chapter chapter-guardian"
+               aria-labelledby="guardian-title"
+               data-chapter>
+        <div class="map-grid" aria-hidden="true"></div>
+
+        <div class="container chapter-layout guardian-layout">
+          <div class="chapter-main">
+            <header class="chapter-heading" data-reveal>
+              <p class="chapter-number">CHAPTER 03 · JULY 21, 1969 → TODAY</p>
+              <h2 id="guardian-title">The Silent Guardian</h2>
+              <p class="chapter-quote">Some journeys end. Their stories live forever.</p>
+            </header>
+
+            <div class="chapter-copy" data-reveal>
+              <h3>A machine of two halves</h3>
+
+              <p>
+                My name is Eagle. I had carried two astronauts
+                safely to the Moon. Now, they needed to return home.
+              </p>
+
+              <p>
+                I was built in two parts.
+                My upper half, the <strong>Ascent Stage</strong>,
+                could lift the astronauts back into orbit.
+                My lower half, the <strong>Descent Stage</strong>,
+                was designed to stay.
+              </p>
+
+              <h3>The final takeoff</h3>
+
+              <p>
+                On July 21, 1969, Armstrong and Aldrin lifted off
+                from the lunar surface in my Ascent Stage.
+                The Descent Stage remained as their launch platform.
+              </p>
+
+              <p>
+                They met Michael Collins aboard Columbia,
+                and on July 24, all three astronauts returned safely to Earth.
+                The Ascent Stage was later discarded in lunar orbit;
+                it did not return to Earth.
+              </p>
+
+              <h3>Forty years later</h3>
+
+              <p>
+                My lower half still rested at Tranquility Base.
+                In 2009, NASA's <strong>Lunar Reconnaissance Orbiter</strong>
+                photographed the Apollo 11 landing site.
+                My Descent Stage could be identified from orbit.
+              </p>
+
+              <p>
+                Nearby, some equipment had stopped working long ago.
+                But the separately deployed laser retroreflector remained
+                useful for lunar ranging measurements.
+              </p>
+
+              <h3>My legacy</h3>
+
+              <p>
+                I was never meant to return to Earth.
+                I was meant to help humans reach the Moon —
+                and begin their journey home.
+              </p>
+
+              <p>
+                My journey ended in 1969.
+                My story still inspires the next generation of explorers.
+              </p>
+            </div>
+          </div>
+
+          <aside class="chapter-side guardian-side" aria-label="Orbital evidence and Eagle stage separation">
+            <figure class="chapter-photo evidence-photo" data-reveal data-reveal-delay="1">
+              <div class="evidence-header">
+                <span>ORBITAL EVIDENCE</span>
+                <span>2009 / LRO</span>
+              </div>
+
+              <div class="photo-frame">
+                <img
+                  src="../../assets/images/apollo/eagle-descent-lro.jpg"
+                  alt="Annotated Lunar Reconnaissance Orbiter image identifying the Eagle descent stage on the Moon"
+                  loading="lazy"
+                  width="800"
+                  height="800"
+                >
+                <span class="map-crosshair" aria-hidden="true"></span>
+              </div>
+
+              <figcaption>
+                <span>03 / TRANQUILITY BASE</span>
+                <span>Eagle Descent Stage seen from lunar orbit · NASA/GSFC/Arizona State University · PIA12909</span>
+              </figcaption>
+            </figure>
+
+            <div class="split-stage" aria-label="How Eagle separated" data-reveal>
+              <p class="side-label">EAGLE / TWO-STAGE SYSTEM</p>
+              <div>
+                <span class="stage-direction" aria-hidden="true">↑</span>
+                <p>
+                  <strong>ASCENT STAGE</strong>
+                  <span>Carried astronauts back to lunar orbit</span>
+                </p>
+              </div>
+              <div>
+                <span class="stage-direction" aria-hidden="true">↓</span>
+                <p>
+                  <strong>DESCENT STAGE</strong>
+                  <span>Remained on the lunar surface</span>
+                </p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </article>
+
+    <section class="ending" aria-labelledby="ending-title">
+      <div class="moon-horizon" aria-hidden="true"></div>
+
+      <div class="container ending-inner" data-reveal>
+        <p class="moon-kicker">ABANDONED, BUT NOT FORGOTTEN</p>
+
+        <h2 id="ending-title">
+          The machine stayed behind.
+          <span>The legacy came home.</span>
+        </h2>
+
+        <p>
+          Hardware can fall silent.
+          The discoveries it helped make can change history.
+        </p>
+
+        <a class="moon-button" href="../../index.html#missions">
+          <span>Explore More Missions</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="sources" class="sources" aria-labelledby="sources-title">
+      <div class="container sources-layout">
+        <header class="sources-intro" data-reveal>
+          <p class="side-label">RESEARCH ARCHIVE</p>
+          <h2 id="sources-title">NASA Sources &amp; Image Credits</h2>
+          <p>
+            This educational story uses creative first-person narration.
+            It is not an authentic quote from Eagle or the Apollo 11 crew.
+          </p>
+        </header>
+
+        <ol class="source-list" data-reveal data-reveal-delay="1">
+          <li>
+            <a href="https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo11info.html"
+               target="_blank"
+               rel="noopener noreferrer">
+              <span>NASA NSSDCA — Apollo 11 mission facts</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo11.html"
+               target="_blank"
+               rel="noopener noreferrer">
+              <span>NASA NSSDCA — Apollo 11 historic photographs</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://svs.gsfc.nasa.gov/4185/"
+               target="_blank"
+               rel="noopener noreferrer">
+              <span>NASA SVS — Apollo 11 scientific experiment photograph</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://science.nasa.gov/photojournal/apollo-11-second-look/"
+               target="_blank"
+               rel="noopener noreferrer">
+              <span>NASA Photojournal — LRO image PIA12909</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ol>
+
+        <p class="sources-credit" data-reveal>
+          Image credits: NASA (AS11-40-5927; AS11-40-5949);
+          NASA/GSFC/Arizona State University (PIA12909).
+          ORBIT D3 is an independent educational project
+          and is not endorsed by NASA.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="apollo-footer">
+    <div class="container footer-layout">
+      <span>ORBIT D3 · Echoes of Space</span>
+      <a href="../../index.html#missions">
+        <span aria-hidden="true">←</span>
+        Back to Missions
+      </a>
+    </div>
+  </footer>
+</body>
+</html>

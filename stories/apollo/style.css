@@ -1,0 +1,1580 @@
+/* ==========================================================
+   ORBIT D3 — APOLLO 11: THE SILENT MOON
+   Page-local cinematic editorial system
+   ========================================================== */
+
+.apollo-page {
+  --moon-black: #070807;
+  --moon-ink: #0c0d0c;
+  --moon-charcoal: #151614;
+  --moon-surface: #232420;
+  --moon-ivory: #f0ede3;
+  --moon-paper: #d1cec4;
+  --moon-gray: #aaa99f;
+  --moon-muted: #8f918d;
+  --moon-gold: #c8a66a;
+  --moon-gold-light: #e1c891;
+  --moon-line: rgba(240, 237, 227, 0.16);
+  --moon-line-dark: rgba(20, 21, 19, 0.22);
+
+  min-width: 0;
+  overflow-x: clip;
+  background: var(--moon-black);
+  color: var(--moon-ivory);
+  color-scheme: dark;
+}
+
+.apollo-page ::selection {
+  background: var(--moon-gold);
+  color: #10110f;
+}
+
+.apollo-page main :focus-visible,
+.apollo-page .apollo-footer :focus-visible {
+  outline-color: var(--moon-gold-light);
+}
+
+.apollo-page .skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 12px 16px;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.apollo-page .skip-link:focus {
+  transform: translateY(0);
+}
+
+/* HERO */
+
+.apollo-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: min(64rem, calc(100svh - 80px));
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: clamp(4rem, 7vh, 6rem) 0 clamp(1.5rem, 3vh, 2.5rem);
+  background:
+    radial-gradient(circle at 78% 32%, rgba(200, 166, 106, 0.08), transparent 28rem),
+    linear-gradient(115deg, #10110f 0%, #070807 58%, #0b0c0b 100%);
+}
+
+.apollo-hero::before {
+  position: absolute;
+  right: -12%;
+  bottom: -34%;
+  z-index: -2;
+  width: 78%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(240, 237, 227, 0.08);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0.09) 0 1.4%, transparent 1.6%),
+    radial-gradient(circle at 61% 24%, rgba(0, 0, 0, 0.22) 0 3%, transparent 3.2%),
+    radial-gradient(circle at 56% 56%, rgba(255, 255, 255, 0.05) 0 2.4%, transparent 2.6%),
+    #20211f;
+  opacity: 0.58;
+  content: "";
+}
+
+.apollo-hero::after {
+  position: absolute;
+  right: 3.5%;
+  bottom: 7%;
+  z-index: -1;
+  width: min(40vw, 36rem);
+  height: 1px;
+  background: rgba(240, 237, 227, 0.18);
+  content: "";
+}
+
+.apollo-hero .hero-stars {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 9% 19%, #f7f6f0 0 1px, transparent 1.4px),
+    radial-gradient(circle at 22% 72%, #d5d2c7 0 1px, transparent 1.3px),
+    radial-gradient(circle at 46% 11%, #fff 0 1px, transparent 1.4px),
+    radial-gradient(circle at 68% 67%, #d5d2c7 0 1px, transparent 1.4px),
+    radial-gradient(circle at 89% 17%, #fff 0 1px, transparent 1.5px);
+  background-size: 23rem 19rem, 31rem 27rem, 29rem 31rem, 37rem 23rem, 41rem 35rem;
+  opacity: 0.3;
+}
+
+.apollo-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(22rem, 0.78fr);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 7.5rem);
+}
+
+.apollo-intro {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  max-width: 45rem;
+}
+
+.mission-code {
+  display: flex;
+  gap: 1rem;
+  margin: 0 0 clamp(3rem, 7vh, 5rem);
+  color: #8f938e;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.mission-code span + span {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mission-code span + span::before {
+  width: 2.2rem;
+  height: 1px;
+  background: rgba(240, 237, 227, 0.25);
+  content: "";
+}
+
+.moon-kicker,
+.chapter-number,
+.side-label,
+.info-label {
+  color: var(--moon-gold-light);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.6;
+}
+
+.apollo-intro .moon-kicker {
+  margin: 0 0 1.1rem;
+}
+
+.apollo-intro h1 {
+  margin: 0;
+  font-size: clamp(4.3rem, 8.2vw, 8rem);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 0.82;
+}
+
+.apollo-intro h1 span {
+  display: block;
+}
+
+.title-prefix {
+  margin-left: 0.1em;
+  color: #9ea09b;
+  font-size: 0.42em;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.title-main {
+  color: var(--moon-ivory);
+}
+
+.apollo-subtitle {
+  max-width: 38rem;
+  margin: 2.2rem 0 0;
+  color: #e2ded2;
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 1.7vw, 1.28rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.apollo-summary {
+  max-width: 35rem;
+  margin: 1.2rem 0 0;
+  color: #adb0aa;
+  font-size: clamp(0.96rem, 1.2vw, 1.05rem);
+  line-height: 1.85;
+}
+
+.apollo-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.7rem;
+  margin-top: 2.2rem;
+}
+
+.moon-button {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: 0.9rem 1.25rem;
+  border: 1px solid var(--moon-gold-light);
+  border-radius: 2px;
+  background: var(--moon-gold-light);
+  color: #12120f;
+  font-family: var(--font-heading);
+  font-size: 0.77rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.moon-button span:last-child {
+  font-size: 1rem;
+}
+
+.moon-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(240, 237, 227, 0.28);
+  color: #d0d2cd;
+  font-size: 0.79rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.story-notice {
+  max-width: 33rem;
+  margin: 1.7rem 0 0;
+  color: #7f827d;
+  font-size: 0.74rem;
+  line-height: 1.65;
+}
+
+.apollo-hero-figure,
+.chapter-photo {
+  min-width: 0;
+  margin: 0;
+}
+
+.photo-frame {
+  position: relative;
+  overflow: hidden;
+  background: #111;
+}
+
+.apollo-hero-figure {
+  position: relative;
+  width: min(100%, 31rem);
+  justify-self: end;
+}
+
+.apollo-hero-figure::before {
+  position: absolute;
+  inset: -1.2rem 1.2rem 1.2rem -1.2rem;
+  z-index: -1;
+  border: 1px solid rgba(240, 237, 227, 0.13);
+  content: "";
+}
+
+.apollo-hero-figure .photo-frame {
+  aspect-ratio: 1;
+  border: 1px solid rgba(240, 237, 227, 0.28);
+}
+
+.apollo-hero-figure .photo-frame::after,
+.science-photo .photo-frame::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 65%, rgba(0, 0, 0, 0.42));
+  pointer-events: none;
+  content: "";
+}
+
+.apollo-hero-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.82) contrast(1.04);
+}
+
+.photo-index {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(5, 6, 5, 0.64);
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--font-heading);
+  font-size: 0.57rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.frame-corner {
+  position: absolute;
+  z-index: 2;
+  width: 2.25rem;
+  height: 2.25rem;
+  pointer-events: none;
+}
+
+.frame-corner-top {
+  top: 0.7rem;
+  left: 0.7rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.72);
+  border-left: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.frame-corner-bottom {
+  right: 0.7rem;
+  bottom: 0.7rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.apollo-hero-figure figcaption,
+.chapter-photo figcaption {
+  display: grid;
+  gap: 0.55rem;
+  padding-top: 1rem;
+  color: #969a94;
+  font-size: 0.67rem;
+  line-height: 1.55;
+}
+
+.apollo-hero-figure figcaption span:first-child,
+.chapter-photo figcaption span:first-child {
+  color: var(--moon-gold-light);
+  font-family: var(--font-heading);
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.mission-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(2.5rem, 5vh, 4.5rem);
+  padding: 1.35rem 0 0;
+  border-top: 1px solid rgba(240, 237, 227, 0.16);
+}
+
+.mission-facts div {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+  padding: 0 2rem;
+}
+
+.mission-facts div:first-child {
+  padding-left: 0;
+}
+
+.mission-facts div + div {
+  border-left: 1px solid rgba(240, 237, 227, 0.14);
+}
+
+.mission-facts dt {
+  color: var(--moon-ivory);
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.mission-facts dd {
+  margin: 0;
+  color: #898c87;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+/* STICKY CHAPTER RAIL */
+
+.chapter-nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 70;
+  border-top: 1px solid rgba(240, 237, 227, 0.08);
+  border-bottom: 1px solid rgba(240, 237, 227, 0.13);
+  background: rgba(8, 9, 8, 0.92);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.chapter-nav-layout {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.32fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 2rem;
+}
+
+.chapter-nav-title {
+  display: flex;
+  align-items: center;
+  color: #767a75;
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.chapter-nav {
+  display: flex;
+  min-width: 0;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: clamp(1.5rem, 5vw, 4.5rem);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+}
+
+.chapter-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.chapter-nav a {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 4.25rem;
+  color: #8e928d;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  scroll-snap-align: center;
+  transition: color 0.2s ease;
+}
+
+.chapter-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--moon-gold-light);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.chapter-nav a > span:first-child {
+  color: #5f625e;
+  font-size: 0.61rem;
+  letter-spacing: 0.12em;
+  transition: color 0.2s ease;
+}
+
+.chapter-nav a:hover,
+.chapter-nav a.is-active {
+  color: var(--moon-ivory);
+}
+
+.chapter-nav a:hover > span:first-child,
+.chapter-nav a.is-active > span:first-child {
+  color: var(--moon-gold-light);
+}
+
+.chapter-nav a.is-active::after {
+  transform: scaleX(1);
+}
+
+.reading-progress {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  overflow: hidden;
+  background: transparent;
+}
+
+#reading-progress-bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--moon-gold-light);
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
+}
+
+/* SHARED CHAPTER TYPOGRAPHY */
+
+.story-chapter {
+  position: relative;
+  isolation: isolate;
+  scroll-margin-top: 4.25rem;
+}
+
+.chapter-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.65fr);
+  gap: clamp(4rem, 9vw, 9rem);
+  align-items: start;
+}
+
+.chapter-main {
+  min-width: 0;
+}
+
+.chapter-heading {
+  margin-bottom: clamp(2.75rem, 5vh, 4.5rem);
+}
+
+.chapter-number {
+  margin: 0 0 1.15rem;
+}
+
+.chapter-heading h2 {
+  max-width: 55rem;
+  margin: 0;
+  font-size: clamp(3.2rem, 7.2vw, 6.9rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.94;
+}
+
+.chapter-quote {
+  max-width: 35rem;
+  margin: 1.65rem 0 0;
+  color: #aead9f;
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 1.5vw, 1.22rem);
+  line-height: 1.6;
+}
+
+.chapter-copy {
+  max-width: 43rem;
+}
+
+.chapter-copy h3 {
+  position: relative;
+  margin: 3.7rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--moon-line);
+  color: var(--moon-ivory);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.chapter-copy h3:first-child {
+  margin-top: 0;
+}
+
+.chapter-copy p {
+  margin: 0 0 1.25rem;
+  color: #b3b5b0;
+  font-size: clamp(0.98rem, 1.12vw, 1.05rem);
+  line-height: 1.92;
+}
+
+.chapter-copy strong {
+  color: #e7dfcb;
+  font-weight: 600;
+}
+
+.chapter-side {
+  display: grid;
+  gap: 1.6rem;
+  min-width: 0;
+}
+
+/* CHAPTER 01 — FLIGHT LOG */
+
+.chapter-journey {
+  overflow: hidden;
+  padding: clamp(5rem, 8vh, 7.5rem) 0;
+  background: #0b0c0b;
+}
+
+.lunar-texture {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.035) 0 0.35rem, transparent 0.4rem),
+    radial-gradient(circle at 82% 24%, rgba(0, 0, 0, 0.4) 0 1.6rem, transparent 1.7rem),
+    radial-gradient(circle at 91% 38%, rgba(255, 255, 255, 0.025) 0 3rem, transparent 3.1rem);
+  opacity: 0.75;
+}
+
+.journey-side {
+  padding-top: clamp(0rem, 12vw, 9rem);
+}
+
+.mission-sequence {
+  padding: 0 0 1rem;
+  border-top: 1px solid var(--moon-line);
+  border-bottom: 1px solid var(--moon-line);
+}
+
+.mission-sequence .side-label {
+  margin: 0;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--moon-line);
+}
+
+.mission-sequence ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mission-sequence li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0.35rem 1rem;
+  padding: 1.5rem 0 1.5rem 1.25rem;
+}
+
+.mission-sequence li::before {
+  position: absolute;
+  top: 1.85rem;
+  left: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 1px solid var(--moon-gold-light);
+  border-radius: 50%;
+  background: #0b0c0b;
+  content: "";
+}
+
+.mission-sequence li::after {
+  position: absolute;
+  top: 2.3rem;
+  bottom: -1.85rem;
+  left: 0.2rem;
+  width: 1px;
+  background: rgba(225, 200, 145, 0.3);
+  content: "";
+}
+
+.mission-sequence li:last-child::after {
+  display: none;
+}
+
+.sequence-date {
+  grid-row: 1 / span 2;
+  color: #747772;
+  font-family: var(--font-heading);
+  font-size: 0.61rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.mission-sequence strong {
+  color: #dedbd1;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+}
+
+.mission-sequence li p {
+  margin: 0;
+  color: #8e918c;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.info-card {
+  padding: 1.5rem;
+  border: 1px solid rgba(240, 237, 227, 0.16);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.info-card .info-label {
+  margin: 0 0 0.9rem;
+}
+
+.info-card p:last-child {
+  margin: 0;
+  color: #b5b8b2;
+  font-size: 0.82rem;
+  line-height: 1.72;
+}
+
+.info-card strong {
+  color: #ebe6db;
+}
+
+.muted-card {
+  border-color: rgba(200, 166, 106, 0.22);
+  background: rgba(200, 166, 106, 0.04);
+}
+
+/* CHAPTER 02 — SCIENCE DOSSIER */
+
+.chapter-achievement {
+  padding: clamp(5rem, 8vh, 7.5rem) 0;
+  background: var(--moon-paper);
+  color: #161714;
+}
+
+.achievement-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.42fr);
+  align-items: end;
+  gap: 3rem;
+}
+
+.chapter-achievement .chapter-number {
+  color: #705a31;
+}
+
+.chapter-achievement .chapter-heading h2 {
+  color: #161714;
+}
+
+.chapter-achievement .chapter-quote {
+  margin: 0 0 0.6rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(22, 23, 20, 0.3);
+  color: #4c4c46;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: minmax(19rem, 0.88fr) minmax(0, 1.12fr);
+  gap: clamp(3rem, 8vw, 7.5rem);
+  align-items: start;
+}
+
+.science-photo .photo-frame {
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(22, 23, 20, 0.45);
+}
+
+.science-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 53% center;
+  filter: saturate(0.75) contrast(1.05);
+}
+
+.science-photo figcaption {
+  color: #4e504c;
+}
+
+.chapter-achievement .chapter-photo figcaption span:first-child {
+  color: #705a31;
+}
+
+.chapter-achievement .chapter-copy h3 {
+  border-color: var(--moon-line-dark);
+  color: #1b1c19;
+}
+
+.chapter-achievement .chapter-copy p {
+  color: #3f403b;
+}
+
+.chapter-achievement .chapter-copy strong {
+  color: #1c1c19;
+}
+
+.discovery-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(5rem, 10vw, 9rem);
+  border-top: 1px solid rgba(22, 23, 20, 0.28);
+  border-bottom: 1px solid rgba(22, 23, 20, 0.28);
+}
+
+.discovery-card {
+  min-width: 0;
+  padding: 2rem clamp(1.5rem, 3.5vw, 3rem) 2.2rem;
+}
+
+.discovery-card:first-child {
+  padding-left: 0;
+}
+
+.discovery-card:last-child {
+  padding-right: 0;
+}
+
+.discovery-card + .discovery-card {
+  border-left: 1px solid rgba(22, 23, 20, 0.24);
+}
+
+.discovery-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 3.3rem;
+  color: #6a6b65;
+  font-family: var(--font-heading);
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.discovery-meta span:first-child {
+  color: #705a31;
+}
+
+.discovery-card h3 {
+  margin: 0 0 0.8rem;
+  color: #171815;
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.discovery-card p {
+  margin: 0;
+  color: #4a4b46;
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+/* CHAPTER 03 — ORBITAL EVIDENCE */
+
+.chapter-guardian {
+  overflow: hidden;
+  padding: clamp(5rem, 8vh, 7.5rem) 0;
+  background: #101211;
+}
+
+.map-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 5rem 5rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 50%, #000);
+  mask-image: linear-gradient(90deg, transparent, #000 50%, #000);
+  opacity: 0.6;
+}
+
+.chapter-guardian .chapter-quote {
+  color: #979c99;
+}
+
+.guardian-side {
+  padding-top: clamp(0rem, 10vw, 7rem);
+}
+
+.evidence-photo {
+  padding: 1rem;
+  border: 1px solid rgba(240, 237, 227, 0.18);
+  background: #090a09;
+}
+
+.evidence-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.15rem 0 1rem;
+  color: #777c78;
+  font-family: var(--font-heading);
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.evidence-header span:first-child {
+  color: var(--moon-gold-light);
+}
+
+.evidence-photo .photo-frame {
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.evidence-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.07);
+}
+
+.map-crosshair {
+  position: absolute;
+  top: 35%;
+  left: 21%;
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid rgba(225, 200, 145, 0.64);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.3rem rgba(0, 0, 0, 0.16);
+}
+
+.map-crosshair::before,
+.map-crosshair::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: rgba(225, 200, 145, 0.7);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.map-crosshair::before {
+  width: 3.2rem;
+  height: 1px;
+}
+
+.map-crosshair::after {
+  width: 1px;
+  height: 3.2rem;
+}
+
+.evidence-photo figcaption {
+  padding-bottom: 0.1rem;
+}
+
+.split-stage {
+  border: 1px solid rgba(240, 237, 227, 0.16);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.split-stage > .side-label {
+  margin: 0;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid rgba(240, 237, 227, 0.14);
+}
+
+.split-stage > div {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.35rem 1.2rem;
+}
+
+.split-stage > div + div {
+  border-top: 1px solid rgba(240, 237, 227, 0.14);
+}
+
+.stage-direction {
+  color: #777b76;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.split-stage div p {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.split-stage strong {
+  color: var(--moon-gold-light);
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+}
+
+.split-stage div p span {
+  color: #8f948f;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+/* ENDING */
+
+.ending {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: min(48rem, 78svh);
+  place-items: center;
+  overflow: hidden;
+  padding: clamp(4.5rem, 7vh, 6rem) 0 clamp(7rem, 12vh, 9rem);
+  background: #050605;
+  text-align: center;
+}
+
+.ending::before {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-image:
+    radial-gradient(circle at 18% 21%, rgba(255, 255, 255, 0.62) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 72% 14%, rgba(255, 255, 255, 0.48) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 88% 37%, rgba(255, 255, 255, 0.38) 0 1px, transparent 1.3px);
+  background-size: 29rem 23rem, 37rem 31rem, 41rem 27rem;
+  opacity: 0.34;
+  content: "";
+}
+
+.moon-horizon {
+  position: absolute;
+  right: 50%;
+  bottom: -18rem;
+  z-index: -2;
+  width: min(100rem, 142vw);
+  height: clamp(22rem, 35vw, 34rem);
+  border: 1px solid rgba(240, 237, 227, 0.22);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background:
+    radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.07) 0 2%, transparent 2.2%),
+    radial-gradient(circle at 62% 19%, rgba(0, 0, 0, 0.28) 0 5%, transparent 5.2%),
+    radial-gradient(circle at 55% 49%, rgba(255, 255, 255, 0.035) 0 3.2%, transparent 3.4%),
+    #282926;
+  box-shadow: 0 -2rem 7rem rgba(216, 211, 196, 0.05);
+  transform: translateX(50%);
+}
+
+.ending-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 65rem;
+}
+
+.ending .moon-kicker {
+  margin: 0 0 1.5rem;
+}
+
+.ending h2 {
+  margin: 0;
+  color: #c4c4bc;
+  font-size: clamp(3.2rem, 7.5vw, 7rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.ending h2 span {
+  display: block;
+  color: var(--moon-ivory);
+}
+
+.ending p:not(.moon-kicker) {
+  max-width: 34rem;
+  margin: 2rem auto 2.3rem;
+  color: #9a9d98;
+  line-height: 1.8;
+}
+
+/* SOURCES */
+
+.sources {
+  padding: clamp(4.5rem, 7vh, 7rem) 0;
+  border-top: 1px solid rgba(240, 237, 227, 0.1);
+  background: #0b0c0b;
+}
+
+.sources-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(22rem, 1.22fr);
+  gap: 2rem clamp(4rem, 10vw, 10rem);
+  align-items: start;
+}
+
+.sources-intro .side-label {
+  margin: 0 0 1rem;
+}
+
+.sources h2 {
+  margin: 0;
+  color: #e2e0d8;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.08;
+}
+
+.sources-intro > p:last-child {
+  margin: 1.4rem 0 0;
+  color: #8e918c;
+  font-size: 0.83rem;
+  line-height: 1.75;
+}
+
+.source-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: sources;
+}
+
+.source-list li {
+  counter-increment: sources;
+  border-top: 1px solid rgba(240, 237, 227, 0.15);
+}
+
+.source-list li:last-child {
+  border-bottom: 1px solid rgba(240, 237, 227, 0.15);
+}
+
+.source-list a {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.4rem 0 1.4rem 2.7rem;
+  color: #b6b9b4;
+  font-size: 0.83rem;
+  line-height: 1.55;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.source-list a::before {
+  position: absolute;
+  margin-left: -2.7rem;
+  color: #656863;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  content: "0" counter(sources);
+}
+
+.source-list a span:last-child {
+  color: var(--moon-gold-light);
+}
+
+.sources-credit {
+  grid-column: 2;
+  max-width: 42rem;
+  margin: 0;
+  color: #696c68;
+  font-size: 0.7rem;
+  line-height: 1.75;
+}
+
+/* FOOTER */
+
+.apollo-footer {
+  padding: 1.8rem 0;
+  border-top: 1px solid rgba(240, 237, 227, 0.12);
+  background: #070807;
+}
+
+.footer-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  color: #737671;
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+}
+
+.apollo-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #aaada8;
+  transition: color 0.2s ease;
+}
+
+/* PROGRESSIVE REVEALS */
+
+.reveal-enabled [data-reveal] {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-enabled [data-reveal-delay="1"] {
+  transition-delay: 0.1s;
+}
+
+.reveal-enabled [data-reveal-delay="2"] {
+  transition-delay: 0.2s;
+}
+
+.reveal-enabled [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: hover) {
+  .moon-button:hover {
+    background: transparent;
+    color: var(--moon-gold-light);
+    transform: translateY(-2px);
+  }
+
+  .moon-text-link:hover {
+    border-color: var(--moon-gold-light);
+    color: var(--moon-gold-light);
+  }
+
+  .source-list a:hover {
+    padding-left: 3rem;
+    color: var(--moon-ivory);
+  }
+
+  .apollo-footer a:hover {
+    color: var(--moon-gold-light);
+  }
+}
+
+@media (min-width: 961px) and (min-height: 760px) {
+  .science-photo,
+  .guardian-side {
+    position: sticky;
+    top: 6.5rem;
+  }
+}
+
+/* RESPONSIVE — TABLET */
+
+@media (max-width: 960px) {
+  .apollo-hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.75fr);
+    gap: 3rem;
+  }
+
+  .apollo-intro h1 {
+    font-size: clamp(4.2rem, 10.2vw, 6.3rem);
+  }
+
+  .chapter-layout,
+  .achievement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter-layout {
+    gap: 5rem;
+  }
+
+  .journey-side,
+  .guardian-side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-top: 0;
+  }
+
+  .mission-sequence,
+  .evidence-photo {
+    grid-row: span 2;
+  }
+
+  .achievement-grid {
+    gap: 4.5rem;
+  }
+
+  .science-photo {
+    width: 100%;
+  }
+
+  .science-photo .photo-frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .science-photo img {
+    object-position: center 60%;
+  }
+
+  .chapter-achievement .chapter-copy {
+    max-width: 46rem;
+  }
+
+  .sources-layout {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .apollo-hero {
+    min-height: auto;
+    padding-top: 5rem;
+  }
+
+  .apollo-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+
+  .mission-code {
+    margin-bottom: 3rem;
+  }
+
+  .apollo-hero-figure {
+    width: min(88%, 35rem);
+    justify-self: center;
+  }
+
+  .apollo-hero-figure .photo-frame {
+    aspect-ratio: 5 / 4;
+  }
+
+  .mission-facts {
+    margin-top: 5rem;
+  }
+
+  .chapter-nav-layout {
+    display: block;
+  }
+
+  .chapter-nav-title {
+    display: none;
+  }
+
+  .chapter-nav {
+    justify-content: flex-start;
+  }
+
+  .achievement-heading {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .chapter-achievement .chapter-quote {
+    max-width: 32rem;
+    margin: 0;
+  }
+
+  .discovery-meta {
+    margin-bottom: 2rem;
+  }
+
+  .sources-layout {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .sources-intro {
+    max-width: 35rem;
+  }
+
+  .sources-credit {
+    grid-column: auto;
+  }
+}
+
+/* RESPONSIVE — MOBILE */
+
+@media (max-width: 700px) {
+  .chapter-nav {
+    gap: 2.2rem;
+    padding-right: 1.5rem;
+  }
+
+  .chapter-nav a {
+    min-height: 3.9rem;
+  }
+
+  .story-chapter {
+    scroll-margin-top: 3.9rem;
+  }
+
+  .journey-side,
+  .guardian-side {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-sequence,
+  .evidence-photo {
+    grid-row: auto;
+  }
+
+  .discovery-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .discovery-card,
+  .discovery-card:first-child,
+  .discovery-card:last-child {
+    padding: 1.7rem 0;
+  }
+
+  .discovery-card + .discovery-card {
+    border-top: 1px solid rgba(22, 23, 20, 0.24);
+    border-left: 0;
+  }
+
+  .discovery-meta {
+    margin-bottom: 1.5rem;
+  }
+
+  .ending {
+    min-height: 38rem;
+    padding-bottom: 8rem;
+  }
+
+  .moon-horizon {
+    bottom: -11rem;
+    width: 190vw;
+    height: clamp(17rem, 62vw, 24rem);
+  }
+}
+
+@media (max-width: 520px) {
+  .apollo-hero {
+    padding-top: 4rem;
+  }
+
+  .apollo-intro h1 {
+    font-size: clamp(3.25rem, 14vw, 4rem);
+  }
+
+  .mission-code {
+    font-size: 0.57rem;
+  }
+
+  .mission-code span + span::before {
+    width: 1.2rem;
+  }
+
+  .apollo-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .moon-button,
+  .moon-text-link {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .moon-text-link {
+    padding: 0.9rem 0;
+  }
+
+  .apollo-hero-figure {
+    width: calc(100% - 1rem);
+  }
+
+  .apollo-hero-figure::before {
+    inset: -0.7rem 0.7rem 0.7rem -0.7rem;
+  }
+
+  .mission-facts {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+
+  .mission-facts div,
+  .mission-facts div:first-child {
+    grid-template-columns: 4.6rem 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .mission-facts div + div {
+    border-top: 1px solid rgba(240, 237, 227, 0.14);
+    border-left: 0;
+  }
+
+  .mission-facts dt {
+    font-size: 1.4rem;
+  }
+
+  .chapter-heading h2 {
+    font-size: clamp(2.9rem, 14.5vw, 4.2rem);
+  }
+
+  .chapter-heading,
+  .achievement-heading {
+    margin-bottom: 3.2rem;
+  }
+
+  .chapter-copy h3 {
+    margin-top: 3rem;
+  }
+
+  .chapter-nav {
+    gap: 1.6rem;
+  }
+
+  .chapter-nav a {
+    font-size: 0.68rem;
+  }
+
+  .chapter-nav a > span:first-child {
+    display: none;
+  }
+
+  .science-photo .photo-frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .science-photo img {
+    object-position: 53% center;
+  }
+
+  .evidence-photo {
+    padding: 0.7rem;
+  }
+
+  .ending {
+    min-height: 35rem;
+    padding-top: 5.5rem;
+  }
+
+  .ending h2 {
+    font-size: clamp(2.8rem, 14vw, 4rem);
+  }
+
+  .source-list a {
+    padding-left: 2.3rem;
+  }
+
+  .source-list a::before {
+    margin-left: -2.3rem;
+  }
+
+  .footer-layout {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 360px) {
+  .chapter-nav {
+    gap: 1.2rem;
+  }
+
+  .chapter-nav a {
+    font-size: 0.63rem;
+  }
+
+  .mission-code {
+    flex-wrap: wrap;
+  }
+
+  .mission-code span + span::before {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-enabled [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  #reading-progress-bar {
+    transition: none;
+  }
+}
