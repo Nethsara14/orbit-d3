@@ -97,8 +97,8 @@ Then open a Pull Request into `main` and ask a teammate to review it.
 
 | Member | Role | Responsibility | GitHub |
 |---|---|---|---|
-| **Sasindu Nethsara Karanayaka** | Team Leader | Page Footer Story Cards Apollo-15, Ingenuity, Opportunity story | [@your-username](https://github.com/Nethsara14) |
-| **Pasindu Hirushan** | Developer | Page Header&Design, Apollo-11 stories | [@their-username](https://github.com/Hirushan450) |
+| **Sasindu Nethsara Karanayaka** | Team Leader | Page Footer Story Cards Apollo-15, Ingenuity, Opportunity story | [@Nethsara14] (https://github.com/Nethsara14) |
+| **Pasindu Hirushan** | Developer | Page Header&Design, Apollo-11 stories | [@Hirushan450] (https://github.com/Hirushan450) |
 
 
 ## AI tool usage
