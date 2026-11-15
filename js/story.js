@@ -163,5 +163,75 @@
     });
 
     desktopQuery.addEventListener('change', build);
+    /* ---- Read aloud (Web Speech API) ---- */
+    const listenBtn = el('stop-listen');
+    const synth = 'speechSynthesis' in window ? window.speechSynthesis : null;
+
+    if (listenBtn && !synth) listenBtn.hidden = true;
+
+    if (listenBtn && synth) {
+        let run = 0;
+
+        function setListening(on) {
+            listenBtn.setAttribute('aria-pressed', String(on));
+            listenBtn.classList.toggle('is-speaking', on);
+            listenBtn.querySelector('.label').textContent = on ? 'Stop' : 'Listen';
+            listenBtn.querySelector('.icon').textContent = on ? '⏹' : '🔊';
+        }
+
+        function stopSpeech() {
+            run++;
+            synth.cancel();
+            setListening(false);
+        }
+
+        function pickVoice() {
+            const voices = synth.getVoices();
+            return voices.find((v) => /^en[-_]/i.test(v.lang) && /google|natural|aria|jenny|samantha/i.test(v.name)) || voices.find((v) => /^en/i.test(v.lang)) || null;
+        }
+
+        function speak() {
+            const text = [el('stop-title-text').textContent + '.', el('stop-text').textContent, 'Did you know? ' + el('stop-fact').textContent].join(' ');
+
+            // sentence by sentence (long text cuts off in some browsers)
+            const chunks = text.match(/[^.!?]+[.!?]+["')\]]*|[^.!?]+$/g) || [text];
+            const id = ++run;
+            synth.cancel();
+            const voice = pickVoice();
+            setListening(true);
+
+            // small delay: Chrome can stay silent if speak() runs right after cancel()
+            setTimeout(() => {
+                if (id !== run) return;
+                chunks.forEach((chunk, i) => {
+                    const u = new SpeechSynthesisUtterance(chunk.trim());
+                    u.lang = 'en-US';
+                    u.rate = 0.95;
+                    if (voice) u.voice = voice;
+                    if (i === chunks.length - 1)
+                        u.onend = () => {
+                            if (id === run) setListening(false);
+                        };
+                    u.onerror = () => {
+                        if (id === run) setListening(false);
+                    };
+                    synth.speak(u);
+                });
+            }, 80);
+        }
+
+        listenBtn.addEventListener('click', () => {
+            if (listenBtn.classList.contains('is-speaking')) stopSpeech();
+            else speak();
+        });
+
+        // stop when the popup changes or closes
+        prevBtn.addEventListener('click', stopSpeech);
+        nextBtn.addEventListener('click', stopSpeech);
+        el('stop-close').addEventListener('click', stopSpeech);
+        dlg.addEventListener('close', stopSpeech);
+        window.addEventListener('pagehide', stopSpeech);
+    }
+
     build();
 })();

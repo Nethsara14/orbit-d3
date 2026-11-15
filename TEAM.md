@@ -12,7 +12,7 @@
 - **Worked on:** Footer, mission cards, Apollo 15, Opportunity and Ingenuity stories
 - **GitHub:** [@Nethsara14](https://github.com/Nethsara14)
 - **LinkedIn:** [LinkedIn profile](https://www.linkedin.com/in/sasindu-nethsara-karanayaka-se/)
-- **Portfolio:** [your-portfolio-link](https://devnethsara.com/)
+- **Portfolio:** [devnethsara.com](https://devnethsara.com/)
 
 ---
 
