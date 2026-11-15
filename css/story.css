@@ -349,3 +349,50 @@ dialog::backdrop { background: rgba(2, 6, 16, .78); backdrop-filter: blur(4px); 
   .more-links { grid-template-columns: 1fr; }
   .trail-progress-bar { gap: 10px; padding: 8px 14px; }
 }
+
+
+
+
+
+/* ---------- Page load animation ---------- */
+@keyframes page-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: none; }
+}
+
+body.story-page {
+  animation: page-fade .9s ease both;
+}
+
+/* hero: one by one */
+.story-hero .crumbs,
+.story-hero .story-tag,
+.story-hero h1,
+.story-hero .story-lead,
+.story-hero .fact,
+.story-hero .story-figure {
+  animation: rise-in 1s cubic-bezier(.2, .7, .2, 1) both;
+}
+.story-hero .crumbs      { animation-delay: .10s; }
+.story-hero .story-tag   { animation-delay: .25s; }
+.story-hero h1           { animation-delay: .40s; }
+.story-hero .story-lead  { animation-delay: .60s; }
+.story-hero .fact:nth-child(1) { animation-delay: .80s; }
+.story-hero .fact:nth-child(2) { animation-delay: .95s; }
+.story-hero .fact:nth-child(3) { animation-delay: 1.10s; }
+.story-hero .story-figure      { animation-delay: .50s; animation-duration: 1.2s; }
+
+/* ---------- Scroll reveal (reveal.js adds these classes) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .9s ease, transform .9s cubic-bezier(.2, .7, .2, 1);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
