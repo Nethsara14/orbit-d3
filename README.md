@@ -7,7 +7,8 @@
 ![Built with HTML, CSS and JavaScript](https://img.shields.io/badge/Built%20with-HTML%20%7C%20CSS%20%7C%20JavaScript-orange)
 
 **Echoes of Space** is an interactive storytelling website about NASA equipment left behind on the Moon and Mars.
-Built by **Team ORBIT D3** for the **NASA Space Apps Challenge 2026**.
+Built by **Team ORBIT D3** for the **NASA Space Apps Challenge 2026**
+(challenge: [NASA's Discarded Equipment Storytelling](https://www.spaceappschallenge.org/2026/challenges/nasas-discarded-equipment-storytelling/)).
 
 ## The stories
 
@@ -94,7 +95,21 @@ Then open a Pull Request into `main` and ask a teammate to review it.
 
 ## Team
 
-**ORBIT D3**: Sasindu Nethsara Karanayaka, Pasindu Hirushan
+| Member | Role | Responsibility | GitHub |
+|---|---|---|---|
+| **Sasindu Nethsara Karanayaka** | [e.g. Developer] | [e.g. Homepage, Opportunity story] | [@your-username](https://github.com/your-username) |
+| **Pasindu Hirushan** | [e.g. Developer] | [e.g. Apollo, Ingenuity stories] | [@their-username](https://github.com/their-username) |
+
+## Mentor / Monitor
+
+| Name | Role | Organisation | Contact |
+|---|---|---|---|
+| [Mentor name] | [Mentor / Monitor] | [Institute / organisation] | [email or LinkedIn] |
+
+## AI tool usage
+
+[Describe honestly how AI tools were used, for example: "Claude (Anthropic) was used to help write and
+debug HTML, CSS and JavaScript. All mission facts were checked against NASA sources by the team."]
 
 ## License
 
