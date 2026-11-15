@@ -20,6 +20,7 @@
 
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/home.css">
 
   <script src="js/navigation.js" defer></script>
 </head>
@@ -144,22 +145,84 @@
     </section>
 
     <!-- MEMBER 2 WILL REPLACE THIS CONTENT -->
-    <section id="missions"
-             class="section-placeholder"
-             aria-labelledby="missions-heading">
-
+    <section class="section" id="missions">
       <div class="container">
-        <p class="section-kicker">CHOOSE A STORY</p>
-        <h2 id="missions-heading">
-          Explore the Missions
-        </h2>
-        <p>Apollo 11 · Opportunity · Ingenuity</p>
-        <p class="placeholder-note">
-          Mission cards will be added by Member 2.
-        </p>
-      </div>
+        <div class="section-heading">
+          <h2>Choose a mission</h2>
+          <p class="muted">Three machines, two worlds. Pick a story to start reading.</p>
+        </div>
 
+        <div class="cards">
+          <article class="card">
+            <div class="thumb">
+              <img
+                src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/lunar-science/2023/09/as11-40-5927_orig.jpg"
+                alt="Apollo 11's Eagle lunar module standing on the Moon, photographed by NASA" loading="lazy"
+                onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <span class="tag">Moon · 1969</span>
+              <h3>Apollo 11: Eagle</h3>
+              <p>The lunar lander whose lower stage still rests at Tranquility Base.</p>
+              <a class="read" href="stories/apollo/index.html">Read the Apollo story →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">
+              <img src="https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA18079.jpg"
+                alt="Self-portrait of NASA's Opportunity rover on Mars" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <span class="tag">Mars · 2004–2018</span>
+              <h3>Opportunity</h3>
+              <p>Built to last 90 Martian days, it kept searching for evidence of past water for nearly 15
+                years.</p>
+              <a class="read" href="stories/opportunity/index.html">Read the Opportunity story →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">
+              <img
+                src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/mars/downloadable_items/4/5/45936_1-PIA24541.jpg"
+                alt="NASA's Ingenuity helicopter on the surface of Mars" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <span class="tag">Mars · 2021–2024</span>
+              <h3>Ingenuity</h3>
+              <p>The small helicopter that proved powered flight is possible on another planet.</p>
+              <a class="read" href="stories/ingenuity/index.html">Read the Ingenuity story →</a>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-heading">
+          <h2>How each story works</h2>
+          <p class="muted">Every story follows the same three chapters, so you always know where you are.</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3>Beginning</h3>
+            <p>Why was this machine sent, and what was it meant to do?</p>
+          </li>
+          <li>
+            <h3>Discoveries</h3>
+            <p>What did it find, and how did that change what we know?</p>
+          </li>
+          <li>
+            <h3>Legacy</h3>
+            <p>How did it end, and why does it still matter?</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
 
     <!-- MEMBER 3 WILL REPLACE THIS CONTENT -->
     <section id="about"
