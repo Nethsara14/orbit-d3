@@ -547,3 +547,131 @@
     transform: none;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- Apollo 11 Golden Moment Card + Corner Crown ---------- */
+.card-golden {
+  position: relative;
+  overflow: visible !important; /* ඔටුන්න කොණෙන් කැපී යාම වළක්වයි */
+  border: 1px solid rgba(255, 209, 102, 0.5);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255, 209, 102, 0.16), transparent 65%),
+    #0e1a30;
+  box-shadow:
+    0 12px 34px rgba(0, 0, 0, 0.35),
+    0 0 24px rgba(255, 209, 102, 0.14);
+}
+
+/* Card එකේ උඩ කොන් දෙකේ රවුම් හැඩය Image එකට දීම */
+.card-golden .thumb {
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+}
+
+/* Image එකේ වම් කොණ ඇතුළට ලස්සනට රැඳෙන Golden Crown Badge එක */
+.golden-crown {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 6px;
+  border: 1px solid rgba(255, 209, 102, 0.65);
+  border-radius: 50%;
+  background: rgba(11, 20, 38, 0.85);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 14px rgba(255, 209, 102, 0.35);
+  pointer-events: none;
+  transition: transform 0.25s ease;
+}
+
+.golden-crown svg {
+  width: 100%;
+  height: 100%;
+}
+
+.card-golden:hover .golden-crown {
+  transform: scale(1.12);
+}
+
+/* ඔයාගේ Carousel container class එකට මේ padding දෙක එකතු කරන්න */
+.cards-track {
+  padding-top: 20px;
+  padding-left: 16px;
+}
+
+.card-golden:hover .golden-crown {
+  transform: rotate(-16deg) scale(1.12);
+}
+
+.card-golden .tag {
+  color: #ffd166;
+}
+
+.card-golden .read {
+  color: #ffe399;
+}
+
+
+
+
