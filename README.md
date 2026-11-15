@@ -127,8 +127,10 @@ Then open a Pull Request into `main` and ask a teammate to review it.
 
 ## AI tool usage
 
-[Describe honestly how AI tools were used, for example: "Claude (Anthropic) was used to help write and
-debug HTML, CSS and JavaScript. All mission facts were checked against NASA sources by the team."]
+## AI tool usage
+
+Claude (Anthropic) was used as a coding assistant to help write and debug HTML, CSS and JavaScript and to
+suggest wording. All mission facts and image credits were checked against NASA sources by the team.
 
 ## License
 
