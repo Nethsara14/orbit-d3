@@ -63,24 +63,6 @@
     linear-gradient(115deg, #0b1730 0%, #050b19 58%, #091225 100%);
 }
 
-.apollo-hero::before {
-  position: absolute;
-  right: -12%;
-  bottom: -34%;
-  z-index: -2;
-  width: 78%;
-  aspect-ratio: 1;
-  border: 1px solid rgba(180, 213, 255, 0.1);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0.09) 0 1.4%, transparent 1.6%),
-    radial-gradient(circle at 61% 24%, rgba(0, 0, 0, 0.22) 0 3%, transparent 3.2%),
-    radial-gradient(circle at 56% 56%, rgba(255, 255, 255, 0.05) 0 2.4%, transparent 2.6%),
-    #263041;
-  opacity: 0.58;
-  content: "";
-}
-
 .apollo-hero::after {
   position: absolute;
   right: 3.5%;
@@ -90,6 +72,21 @@
   height: 1px;
   background: rgba(180, 213, 255, 0.18);
   content: "";
+}
+
+.apollo-hero .hero-side-light {
+  position: absolute;
+  inset: 0 0 auto auto;
+  z-index: 0;
+  width: clamp(14rem, 54vw, 48rem);
+  height: clamp(18rem, 52vh, 34rem);
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 100% 100% at 100% 0%,
+    rgba(241, 178, 90, 0.5) 0%,
+    rgba(200, 166, 106, 0.18) 36%,
+    transparent 76%
+  );
 }
 
 .apollo-hero .hero-stars {
@@ -151,6 +148,8 @@
 }
 
 .apollo-hero-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.06fr) minmax(22rem, 0.78fr);
   align-items: center;
@@ -423,6 +422,8 @@
 }
 
 .mission-facts {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: clamp(2.5rem, 5vh, 4.5rem);
